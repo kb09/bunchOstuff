@@ -1,8 +1,22 @@
 import React from 'react';
+import {
+  TextField, 
+  Button,
+  Typography,
+  Paper
+} from '@material-ui/core';
+
+
 
 const Form = () => {
   return (
-    <h1>FORM</h1>
+    <Paper className = {classes.paper}>
+
+      <form autoComplete='off' noValidate className={classes.form}>
+
+      </form>
+
+    </Paper>
   );
 }
 
