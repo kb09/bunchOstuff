@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import bodyParser from 'body-parser';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
