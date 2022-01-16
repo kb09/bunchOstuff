@@ -14,7 +14,11 @@ const postSchema = mongoose.Schema({
   },
 
   createdAt: {
-    type: Date,
+    type: Date
   },
 
 })
+
+const postInfo = mongoose.model('postInfo', postSchema);
+
+export default postInfo;
