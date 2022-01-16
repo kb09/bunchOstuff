@@ -14,6 +14,6 @@ const PORT= process.env.PORT || 4000; //
 //connecting to mongoDB 
 // mongoose.connect(process.env.LINK_URL)
 mongoose.connect(process.env.LINK_URL)
-.then(()=> app.listen(PORT, ()=> console.log(`server running on port {PORT}`))) // port connected
+.then(()=> app.listen(PORT, ()=> console.log(`server running on port ${PORT}`))) // port connected
 .catch((error)=>console.log(error.message)); // port not connected 
 
