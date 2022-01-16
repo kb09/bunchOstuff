@@ -3,9 +3,12 @@ import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
 
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+   <Container maxidth="lg">
+     <AppBar position="static" color="inherit">
+       <Typography variant="h2" align="center">DejaView</Typography>
+       <img src={dejaview} alt="dejaview" height="60" />
+     </AppBar>
+   </Container>
   );
 }
 
