@@ -8,4 +8,9 @@ const postSchema = mongoose.Schema({
   tags: [String],
   message: String,
 
+  likeCount:{
+    type: Number,
+    default: 0
+  },
+
 })
