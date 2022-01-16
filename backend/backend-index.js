@@ -4,8 +4,12 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv';
 // import bodyParser from "body-parser";
 
+import postRoutes from "./routes/posts.js";
+
 const app = express(); //set app
 dotenv.config();
+
+app.use('/posts', postRoutes); //
 
 app.use(cors()); // allows input from external URLS 
 const PORT= process.env.PORT || 4000; // 
