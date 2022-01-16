@@ -4,8 +4,11 @@ import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
 import dejaview from './images/dejaview.png';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
+import useStyles from './styles';
 
 const App = () => {
+  const classes = useStyles();
+  
   return (
    <Container maxidth="lg">
      <AppBar position="static" color="inherit">
