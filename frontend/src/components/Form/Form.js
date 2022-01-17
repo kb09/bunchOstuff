@@ -14,15 +14,10 @@ import {
 } from '@material-ui/core';
 // import { useState } from 'react';
 
-const clear = () => {
- //  add clear functionality 
- setCurrentId(null);
- setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
-}
 
 const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
-
+  
   const [postData, setPostData] = useState({
     creator: '', 
     title: '', 
@@ -36,7 +31,12 @@ const Form = ({ currentId, setCurrentId }) => {
   useEffect(() =>  {
     if(post) setPostData(post);
   }, [post])
-
+  
+  const clear = () => {
+   //  add clear functionality 
+   setCurrentId(null);
+   setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId) {
