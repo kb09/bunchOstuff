@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import useStyles from './styles';
 // import FileBase from 'react-file-base64';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
 
 
@@ -15,7 +15,9 @@ import {
 // import { useState } from 'react';
 
 const clear = () => {
- // empty for now so need to add functionality 
+ //  add clear functionality 
+ setCurrentId(0);
+ setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
 }
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -27,12 +29,14 @@ const Form = ({ currentId, setCurrentId }) => {
     message: '', 
     tags: '', 
     selectedFile: ''
-
-
   });
-  
+  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const dispatch = useDispatch(); //returns a reference to the dispatch
   
+  useEffect(() =>  {
+    if(post) setPostData(post);
+  }, [post])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId) {
@@ -42,6 +46,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
       dispatch(createPost(postData));
     }
+    clear();
   }
 
   return (
@@ -49,8 +54,8 @@ const Form = ({ currentId, setCurrentId }) => {
 
     <Paper className = {classes.paper}>
 
-      <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`}>
-        <Typography variant='h6'> Create A DejaView to share  </Typography>
+      <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+        <Typography variant='h6'>{ currentId ? `Editing "${post.title}"` : 'Creating a Memory' }</Typography>
 
         <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(element) => setPostData({ ...postData, creator: element.target.value })} />
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(element) => setPostData({ ...postData, title: element.target.value })} />
