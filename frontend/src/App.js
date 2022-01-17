@@ -1,48 +1,54 @@
-import React, {useEffect} from 'react';
-import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from "react";
+import { Typography, Grid, AppBar, Container, Grow } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 
-import dejaview from './images/dejaview.png';
-import Posts from './components/Posts/Posts';
-import Form from './components/Form/Form';
+import dejaview from "./images/dejaview.png";
+import Posts from "./components/Posts/Posts";
+import Form from "./components/Form/Form";
 
-import { getPosts } from "./actions/posts"
-import useStyles from './styles';
+import { getPosts } from "./actions/posts";
+import useStyles from "./styles";
 
 const App = () => {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPosts())
-  }, [dispatch])
-
-
-
-
-  
-
+    dispatch(getPosts());
+  }, [dispatch]);
 
   return (
-   <Container maxidth="lg">
-     <AppBar className={classes.appBar} position="static" color="inherit">
-       <Typography className={classes.heading} variant="h2" align="center">DejaView</Typography>
-       <img className={classes.image} src={dejaview} alt="dejaview" height="60" />
-     </AppBar>
-     <Grow in>
-       <Container>
-         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-          <Grid item xs={12} sm={7}>
-            <Posts />
+    <Container maxidth="lg">
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography className={classes.heading} variant="h2" align="center">
+          DejaView
+        </Typography>
+        <img
+          className={classes.image}
+          src={dejaview}
+          alt="dejaview"
+          height="60"
+        />
+      </AppBar>
+      <Grow in>
+        <Container>
+          <Grid
+            container
+            justify="space-between"
+            alignItems="stretch"
+            spacing={3}
+          >
+            <Grid item xs={12} sm={7}>
+              <Posts />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Form />
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Form />
-          </Grid>
-         </Grid>
-       </Container>
-     </Grow>
-   </Container>
+        </Container>
+      </Grow>
+    </Container>
   );
-}
+};
 
 export default App;

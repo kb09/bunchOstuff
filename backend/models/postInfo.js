@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
   title: String,
-  creator: String,
-  selectedFile: String, // use base64 to turn img to string
-  tags: [String],
   message: String,
+  creator: String,
+  tags: [String],
+  selectedFile: String, // use base64 to turn img to string
 
   likeCount: {
     type: Number,
@@ -18,6 +18,6 @@ const postSchema = mongoose.Schema({
   },
 });
 
-const PostInfo = mongoose.model("postInfo", postSchema);
+const PostInfo = mongoose.model("PostInfo", postSchema);
 
 export default PostInfo;
