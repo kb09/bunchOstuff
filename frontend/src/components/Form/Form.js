@@ -16,7 +16,7 @@ import {
 
 const clear = () => {
  //  add clear functionality 
- setCurrentId(0);
+ setCurrentId(null);
  setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
 }
 
