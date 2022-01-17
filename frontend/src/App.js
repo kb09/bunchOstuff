@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { Typography, Grid, AppBar, Container, Grow } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
-import dejaview from "./images/dejaview.png";
+import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
-
-import { getPosts } from "./actions/posts";
+import dejaview from "./images/dejaview.png";
 import useStyles from "./styles";
 
 const App = () => {
