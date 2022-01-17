@@ -38,6 +38,7 @@ const Form = () => {
         fullWidth 
         variant="outlined"
         value={postData.creator}
+        onChange={(element) => setPostData({ ...postData, title: element.target.value })}  // ** using object to set state **
         
         >          
         </TextField>
