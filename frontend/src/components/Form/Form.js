@@ -7,8 +7,6 @@ import { createPost, updatePost } from '../../actions/posts';
 import FileBase from "react-file-base64";
 
 // import FileBase from 'react-file-base64';
-import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/posts";
 
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 // import { useState } from 'react';
@@ -39,24 +37,17 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId) {
-
+      
       dispatch(updatePost(currentId, postData));
     } else {
-
+      
       dispatch(createPost(postData));
     }
     clear();
   }
 
-  const clear = () => {
-    // empty for now so need to add functionality
-  };
+     
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-      <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant='h6'>{ currentId ? `Editing "${post.title}"` : 'Creating a Memory' }</Typography>
 
   return (
     <Paper className={classes.paper}>
@@ -66,7 +57,7 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6"> Create A DejaView to share </Typography>
+        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaview' }</Typography>
 
         <TextField
           name="creator"
