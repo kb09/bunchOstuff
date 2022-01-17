@@ -2,17 +2,16 @@ import React, { useEffect, useState} from 'react';
 import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
 import { useDispatch } from 'react-redux'
 
-import dejaview from './images/dejaview.png';
-import Posts from './components/Posts/Posts';
-import Form from './components/Form/Form';
-
-import { getPosts } from "./actions/posts"
-import useStyles from './styles';
+import { getPosts } from "./actions/posts";
+import Posts from "./components/Posts/Posts";
+import Form from "./components/Form/Form";
+import dejaview from "./images/dejaview.png";
+import useStyles from "./styles";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPosts())
@@ -39,11 +38,10 @@ const App = () => {
           <Grid item xs={12} sm={4}>
             <Form currentId={currentId} setCurrentId={setCurrentId}/>
           </Grid>
-         </Grid>
-       </Container>
-     </Grow>
-   </Container>
+        </Container>
+      </Grow>
+    </Container>
   );
-}
+};
 
 export default App;
