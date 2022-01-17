@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import useStyles from './styles';
 // import FileBase from 'react-file-base64';
-
-
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../actions/posts';
 
 
 
@@ -30,6 +30,15 @@ const Form = () => {
 
 
   });
+  
+  const dispatch = useDispatch(); //returns a reference to the dispatch
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createPost(postData));
+  }
+
   return (
     
 
