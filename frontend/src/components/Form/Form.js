@@ -33,16 +33,11 @@ const Form = () => {
 
       <form autoComplete='off' noValidate className={classes.form}>
         <Typography variant='h6'> Create A DejaView to share  </Typography>
-        <TextField name="creator" 
-        label="Creator" 
-        fullWidth 
-        variant="outlined"
-        value={postData.creator}
-        onChange={(element) => setPostData({ ...postData, title: element.target.value })}  // ** using object to set state **
-        
-        >          
-        </TextField>
 
+        <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(element) => setPostData({ ...postData, creator: element.target.value })} />
+        <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(element) => setPostData({ ...postData, title: element.target.value })} />
+        <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(element) => setPostData({ ...postData, message: element.target.value })} />
+        <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(element) => setPostData({ ...postData, tags: element.target.value.split(',') })} />
       </form>
 
     </Paper>
