@@ -1,4 +1,4 @@
-import PostMessage from "../models/postInfo.js"
+import PostInfo from "../models/postInfo.js"
 import mongoose from "mongoose"
 /*
 this is used to create handlers for our routes so we can call 
