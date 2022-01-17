@@ -18,7 +18,7 @@ const clear = () => {
  // empty for now so need to add functionality 
 }
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
 
   const [postData, setPostData] = useState({
