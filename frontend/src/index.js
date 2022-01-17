@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux"
+import { compose, applyMiddleware, createStore } from "redux"
+import think from "redux-thunk"
+
+import reducers from "./reducers"
 
 import App from './App';
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
 // render a React element into a root DOM node
 ReactDOM.render(<App />, document.getElementById('root'));
