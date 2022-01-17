@@ -6,7 +6,7 @@ import { createPost, updatePost } from '../../actions/posts';
 import FileBase from "react-file-base64";
 
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
-// import { useState } from 'react';
+
 
 
 const Form = ({ currentId, setCurrentId }) => {
