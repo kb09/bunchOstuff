@@ -1,4 +1,4 @@
-import PostMessage from "../models/postInfo.js"
+import PostInfo from "../models/postInfo.js"
 
 /*
 this is used to create handlers for our routes so we can call 
@@ -8,7 +8,7 @@ helps keep code clean
 
 export const getPosts = async (req, res) => {
   try {
-    const postMessage = await PostMessage.find()
+    const postMessage = await PostInfo.find()
 
     res.status(200).json(postMessage)
 
@@ -21,7 +21,7 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   const post = req.body
 
-  const newPost = new PostMessage(post)
+  const newPost = new PostInfo(post)
 
   try {
     await newPost.save()

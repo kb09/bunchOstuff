@@ -1,25 +1,23 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
-
   title: String,
   creator: String,
   selectedFile: String, // use base64 to turn img to string
   tags: [String],
   message: String,
 
-  likeCount:{
+  likeCount: {
     type: Number,
-    default: 0
+    default: 0,
   },
 
   createdAt: {
     type: Date,
-    default: new Date()
+    default: new Date(),
   },
+});
 
-})
+const PostInfo = mongoose.model("postInfo", postSchema);
 
-const postInfo = mongoose.model('postInfo', postSchema);
-
-export default postInfo;
+export default PostInfo;

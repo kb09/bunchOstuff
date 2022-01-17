@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import useStyles from './styles';
-// import FileBase from 'react-file-base64';
+import FileBase from 'react-file-base64';
 
 
 
@@ -44,7 +44,7 @@ const Form = () => {
         <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(element) => setPostData({ ...postData, tags: element.target.value.split(',') })} />
 
         <div className={classes.fileInput}>
-          {/* <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /> */}
+          <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} />
           <Button className={classes.buttonSubmit} variant="contained" color="primary" size="larger" type="submit" fullWidth>Submit</Button>
           <Button variant="contained" color="warning" size="medium" onClick={clear} fullWidth>Clear All</Button>
         </div>
