@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
+// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+// import DeleteIcon from '@material-ui/icons/Delete';
 import moment from 'moment';
 
 import useStyles from './styles';
@@ -27,15 +27,15 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>  {/* loop over tags and add # to them */}
       </div>
-
+      <Typography className={classes.title} variant="h5" gutterBottom> {post.title} </Typography>
       <CardContent>
-      <Typography className={classes.title} variant="h5" gutterBottom> {post.message} </Typography>
+      <Typography variant="h5" gutterBottom> {post.message} </Typography>
       </CardContent>
 
       <CardActions className={classes.cardActions}> 
 
-        <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button> add like count 
-        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+        {/* <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button> */}
+        {/* <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button> */}
       </CardActions>
 
 
