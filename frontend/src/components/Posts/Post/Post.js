@@ -3,6 +3,7 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
+import moment from 'moment';
 
 import useStyles from './styles';
 
