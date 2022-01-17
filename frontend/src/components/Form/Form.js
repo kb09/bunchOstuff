@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import useStyles from './styles';
 // import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/posts';
+import { createPost, updatePost } from '../../actions/posts';
 
 
 
@@ -35,8 +35,13 @@ const Form = ({ currentId, setCurrentId }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(currentId) {
 
-    dispatch(createPost(postData));
+      dispatch(updatePost(currentId, postData));
+    } else {
+
+      dispatch(createPost(postData));
+    }
   }
 
   return (
