@@ -1,11 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
+import { useDispatch } from 'react-redux'
 
 import dejaview from './images/dejaview.png';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
+import { getPosts } from "./actions/posts"
 
 const App = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getPosts())
+  }, [dispatch])
+
   return (
    <Container maxidth="lg">
      <AppBar position="static" color="inherit">
