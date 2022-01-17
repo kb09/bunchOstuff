@@ -31,3 +31,10 @@ export const createPost = async (req, res) => {
     res.status(409).json({message: error.message})
   }
 }
+
+export const updatePost = async (req, res) => {
+  const { id: _id } = req.params;
+
+  if(mongoose.Type.objectId.isValid(_id)) return res.status(404).send('No post with that id'); //chech if an _id is real db mongoose id
+
+}
