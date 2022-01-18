@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getPosts, createPost, updatePost, likePost } from "../controllers/controller-posts.js";
+import { getPosts, createPost, updatePost, likePost, deletePost } from "../controllers/controller-posts.js";
 
 const router = express.Router();
 
@@ -9,5 +9,6 @@ router.get("/", getPosts); // getPosts is from contorller-posts.js kind of like 
 router.post("/", createPost);
 router.patch('/:id', updatePost); //update post with id
 router.patch('/:id/likePost', likePost); // route to update when like is clicked
+router.delete('/:id', deletePost);
 
 export default router;
