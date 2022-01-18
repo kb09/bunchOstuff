@@ -21,3 +21,4 @@ const postSchema = mongoose.Schema({
 const PostInfo = mongoose.model("PostInfo", postSchema);
 
 export default PostInfo;
+

@@ -2,6 +2,7 @@
 export default (posts = [], action) => {
   switch (action.type) {
     case "UPDATE":
+    case "LIKE": // both update and like will do the same 
       return posts.map((post) => (post._id === action.payload._id ? action.payload : post)); // return an updated post
     case "FETCH_ALL":
         return action.payload;
@@ -11,3 +12,4 @@ export default (posts = [], action) => {
         return posts;
   }
 }
+
