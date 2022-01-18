@@ -42,3 +42,9 @@ export const updatePost = async (req, res) => {
   const updatedPost = await PostMessage.findByIdAndUpdate(_id, { ...post, _id }, { new: true }); //if id is valid update a post
   res.json(updatedPost);
 }
+
+
+
+
+
+export const likePost = async (req, res) => {}
