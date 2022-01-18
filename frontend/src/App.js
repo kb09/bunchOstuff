@@ -1,12 +1,12 @@
 import React, { useEffect, useState} from 'react';
-import { Typography, Grid, AppBar, Container, Grow } from '@material-ui/core';
+import { Grid, Container, Grow } from '@material-ui/core';
 import { useDispatch } from 'react-redux'
 
 import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
-import dejaview from "./images/dejaview.png";
 import useStyles from "./styles";
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -25,10 +25,7 @@ const App = () => {
 
   return (
    <Container maxidth="lg">
-     <AppBar className={classes.appBar} position="static" color="inherit">
-       <Typography className={classes.heading} variant="h2" align="center">DejaView</Typography>
-       <img className={classes.image} src={dejaview} alt="dejaview" height="60" />
-     </AppBar>
+     <Navbar/>
      <Grow in>
        <Container>
          <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
