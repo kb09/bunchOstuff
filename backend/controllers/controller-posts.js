@@ -10,6 +10,7 @@ export const getPosts = async (req, res) => {
   try {
     const postMessage = await PostInfo.find()
 
+
     res.status(200).json(postMessage)
 
   } catch (error) {
@@ -22,6 +23,7 @@ export const createPost = async (req, res) => {
   const post = req.body
 
   const newPost = new PostInfo(post)
+
 
   try {
     await newPost.save()
@@ -47,14 +49,14 @@ export const updatePost = async (req, res) => {
 
 
 
+
 export const likePost = async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
+  const post = await PostInfo.findById(id); // finds post by id 
 
-  const post = await PostMessage.findById(id) // finds post by id 
-  const updatedPost = await PostMessage.findByIdAndUpdate(id, {likeCount: post.likeCount + 1 }, {new: true}) // gets id of liked and adds a like count 
-
+  const updatedPost = await PostInfo.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true }); // gets id of liked and adds a like count 
+  
   res.json(updatedPost);
-
 }
