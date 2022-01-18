@@ -26,11 +26,6 @@ const Form = ({ currentId, setCurrentId }) => {
     if(post) setPostData(post);
   }, [post])
   
-  const clear = () => {
-   //  add clear functionality 
-   setCurrentId(null);
-   setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
-  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId) {
@@ -41,6 +36,11 @@ const Form = ({ currentId, setCurrentId }) => {
       dispatch(createPost(postData));
     }
     clear();
+  }
+  const clear = () => {
+   //  add clear functionality 
+   setCurrentId(null);
+   setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
   }
 
      

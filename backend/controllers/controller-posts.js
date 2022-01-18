@@ -1,5 +1,5 @@
-import PostInfo from "../models/postInfo.js"
-import mongoose from "mongoose"
+import PostInfo from "../models/postInfo.js";
+import mongoose from "mongoose";
 /*
 this is used to create handlers for our routes so we can call 
 them in the routes / post.js instead of having all that code in one file,
@@ -36,9 +36,9 @@ export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
   const post = req.body;
 
-  if(mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id'); //chech if an _id is real db mongoose id
+  if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id'); //chech if an _id is real db mongoose id
 
   
-  const updatedPost = await PostMessage.findByIdAndUpdate(_id, { ...post, _id }, { new: true }); //if id is valid update a post
+  const updatedPost = await PostInfo.findByIdAndUpdate(_id, { ... post, _id }, { new: true }); //if id is valid update a post
   res.json(updatedPost);
 }
