@@ -13,24 +13,25 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   
   return (
-    <Card className={classes.media} image={post.selectedFile} title = {post.title}>
+    <Card className={classes.card}>
+    <CardMedia className={classes.media} image={post.selectedFile} title = {post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.creator}</Typography>
-        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography> {/* time stamp  */}
+        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
 
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /> {/* add logic to onClick soon */}
-       <MoreHorizIcon fontSize='default'/>
+        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}> 
+          <MoreHorizIcon fontSize='default'/>
         </Button> 
       </div>
 
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>  {/* loop over tags and add # to them */}
+        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
       </div>
       <Typography className={classes.title} variant="h5" gutterBottom> {post.title} </Typography>
       <CardContent>
-      <Typography variant="h5" gutterBottom> {post.message} </Typography>
+      <Typography variant="h5"> {post.message} </Typography>
       </CardContent>
 
       <CardActions className={classes.cardActions}> 
@@ -38,8 +39,6 @@ const Post = ({ post, setCurrentId }) => {
         {/* <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button> */}
         {/* <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button> */}
       </CardActions>
-
-
     </Card>
   );
 }
