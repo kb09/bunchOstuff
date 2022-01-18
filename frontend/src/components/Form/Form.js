@@ -22,15 +22,21 @@ const Form = ({ currentId, setCurrentId }) => {
   const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const dispatch = useDispatch(); //returns a reference to the dispatch
   
-  useEffect(() =>  {
-    if(post) setPostData(post);
-  }, [post])
+  // useEffect(() =>  {
+  //   if(post) setPostData(post);
+  // }, [post])
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post, dispatch]);
+
   
   const clear = () => {
    //  add clear functionality 
    setCurrentId(null);
    setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
   }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId) {
