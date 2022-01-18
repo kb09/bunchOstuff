@@ -60,3 +60,14 @@ export const likePost = async (req, res) => {
   
   res.json(updatedPost);
 }
+
+
+export const deletePost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
+
+  await PostInfo.findByIdAndRemove(id); ///////////////////////////
+
+  res.json({ message:'Post has been deleted' });
+}
