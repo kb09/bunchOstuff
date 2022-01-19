@@ -4,7 +4,7 @@ import useStyles from './styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const Auth = () => {
-  const state = null;
+  const isSignup = false;
   const classes = useStyles();
 
   return (
@@ -13,6 +13,7 @@ const Auth = () => {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
+        <Typography component="h1" variant="h5">Sign in</Typography>
       </Paper>
     </Container>
   )
