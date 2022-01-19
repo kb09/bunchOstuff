@@ -53,6 +53,10 @@ export const updatePost = async (req, res) => {
 export const likePost = async (req, res) => {
   const { id } = req.params;
 
+  if (!req.userId) {
+    return res.json({ message: "Unauthenticated" });
+  } //check user's auth
+
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
   const post = await PostInfo.findById(id); // finds post by id 
 
