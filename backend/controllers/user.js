@@ -8,7 +8,8 @@ export const signin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const existingUser = await UserModal.findOne({ email }); // find user with email
+    // fix? UserModal to User.finOne Part 3 - 1:34
+    const existingUser = await User.findOne({ email }); // find user with email
 
     if (!existingUser) return res.status(404).json({ message: "This user does not exist" });
 
@@ -32,7 +33,7 @@ export const signup = async (req, res) => {
   const { email, password, firstName, lastName, confirmPassword } = req.body;
 
   try {
-    const existingUser = await UserModal.findOne({ email }); // check user with email
+    const existingUser = await User.findOne({ email }); // check user with email
 
     if (existingUser) return res.status(400).json({ message: "User already exists" });
 

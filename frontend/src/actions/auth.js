@@ -1,9 +1,17 @@
 import * as api from "../api";
 
-export const signin = (formData, history) => async (dispatch) => {
+// google fix ::
+export const signin = (formData, navigate) => async (dispatch) => {
+// export const signin = (formData, history) => async (dispatch) => {
   try {
 
-    history.push('/');
+    const { data } = await api.signIn(formData)
+
+    dispatch({type: "AUTH", data})
+
+    // google fix ::
+    // history.push('/');
+    navigate("/")
 
   } catch (error) {
 
@@ -14,10 +22,19 @@ export const signin = (formData, history) => async (dispatch) => {
 
 
 
-export const signup = (formData, history) => async (dispatch) => {
+// google fix ::
+export const signup = (formData, navigate) => async (dispatch) => {
+// export const signup = (formData, history) => async (dispatch) => {
+
   try {
 
-    history.push('/');
+    const { data } = await api.signUp(formData)
+
+    dispatch({type: "AUTH", data})
+
+    // google fix ::
+    // history.push('/');
+    navigate("/")
 
   } catch (error) {
 
@@ -25,3 +42,4 @@ export const signup = (formData, history) => async (dispatch) => {
     
   }
 };
+
