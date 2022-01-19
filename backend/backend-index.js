@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import postRoutes from "./routes/posts.js";
-
+import userRoutes from "./routes/users.js";
 
 const app = express(); //set app
 
@@ -16,6 +16,7 @@ app.use(cors()); // allows input from external URLS
 dotenv.config();
 
 app.use("/posts", postRoutes);
+app.use('/user', userRoutes);
 
 const PORT = process.env.PORT || 4000; //
 
