@@ -1,12 +1,19 @@
 import React from "react";
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import useStyles from './styles';
+
 const Auth = () => {
   const state = null;
+  const classes = useStyles();
+
   return (
-    <div>
-      Auth
-    </div>
+    <Container component="main" maxWidth="xs">
+      <Paper className={classes.paper} elevation={3}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+      </Paper>
+    </Container>
   )
 };
 
