@@ -8,7 +8,6 @@ export const signin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // fix? UserModal to User.finOne Part 3 - 1:34
     const existingUser = await User.findOne({ email }); // find user with email
 
     if (!existingUser) return res.status(404).json({ message: "This user does not exist" });
@@ -48,7 +47,7 @@ export const signup = async (req, res) => {
     res.status(200).json({ result, token });
   } catch (error) {
 
-    res.status(500).json({ message: "There was an erro" });
+    res.status(500).json({ message: "There was an error" });
     
     console.log(error);
 
