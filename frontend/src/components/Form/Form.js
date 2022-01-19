@@ -33,7 +33,7 @@ const Form = ({ currentId, setCurrentId }) => {
       clear();
     } else {
       
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
       clear();
     }
   };
@@ -42,7 +42,15 @@ const Form = ({ currentId, setCurrentId }) => {
    setCurrentId(null);
    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   };
-
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant="h6" align="center">
+          Sign In to create your own ads and like other's ads.
+        </Typography>
+      </Paper>
+    );
+  }
      
 
 
