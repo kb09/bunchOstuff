@@ -8,7 +8,6 @@ export const signin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // fix? UserModal to User.finOne Part 3 - 1:34
     const existingUser = await User.findOne({ email }); // find user with email
 
     if (!existingUser) return res.status(404).json({ message: "This user does not exist" });
