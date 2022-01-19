@@ -19,6 +19,10 @@ const Auth = () => {
 
   };
 
+  const switchMode = () => {
+
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
@@ -42,6 +46,13 @@ const Auth = () => {
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button onClick={switchMode}>
+                { isSignup ? 'If you already have an account, Sign in.' : 'If you don\'t have an account yet, Sign up for FREE' }
+              </Button>
+            </Grid>
+          </Grid>
         </form>
       </Paper>
     </Container>
