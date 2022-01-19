@@ -6,7 +6,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
 
 const Auth = () => {
-  const isSignup = false;
+  const [isSignup, setIsSignup] = useState(false);
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,7 +20,8 @@ const Auth = () => {
   };
 
   const switchMode = () => {
-
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+    setShowPassword(false);
   };
 
   return (
