@@ -8,7 +8,6 @@ import FileBase from "react-file-base64";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 
 
-
 const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
   
@@ -20,6 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
   });
   const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const dispatch = useDispatch(); //returns a reference to the dispatch
+  const user = JSON.parse(localStorage.getItem('profile'));
   
   useEffect(() =>  {
     if(post) setPostData(post);
@@ -29,7 +29,7 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
     if(currentId === 0) {
       
-      dispatch(createPost({ ...postData}));
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
       clear();
     } else {
       
