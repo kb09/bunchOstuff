@@ -98,9 +98,9 @@ const Auth = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
-        <Avatar className={classes.avatar}>
+        {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
-        </Avatar>
+        </Avatar> ///////////*/}
 
         <Typography component="h1" variant="h5">
           {isSignup ? "Sign up" : "Sign in"}

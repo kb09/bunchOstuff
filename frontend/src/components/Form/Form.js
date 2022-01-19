@@ -54,7 +54,7 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaviewwwww' }</Typography>
+        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Post An Ad' }</Typography>
 
         <TextField
           name="creator"
@@ -66,7 +66,7 @@ const Form = ({ currentId, setCurrentId }) => {
             setPostData({ ...postData, creator: element.target.value })
           }
         />
-        <TextField
+        <TextField 
           name="title"
           variant="outlined"
           label="Title"
@@ -108,25 +108,27 @@ const Form = ({ currentId, setCurrentId }) => {
             }
           />
           <Button
-            className={classes.buttonSubmit}
-            variant="contained"
-            // color="primary"
-            size="larger"
-            type="submit"
-            fullWidth
-          >
-            Submit
-          </Button>
-          <Button
            className={classes.buttonClear} ///// 
             variant="contained"
             color="warning"
-            size="medium"
+            size="larger"
             onClick={clear}
             halfWidth
           >
             Clear All
           </Button>
+
+          <Button
+            className={classes.buttonSubmit}
+            variant="contained"
+            // color="primary"
+            size="larger"
+            type="submit"
+            halfWidth
+          >
+            Submit
+          </Button>
+
         </div>
       </form>
     </Paper>
