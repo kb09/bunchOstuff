@@ -10,6 +10,9 @@ const Auth = () => {
   const handleSubmit = () => {
 
   };
+  const handleChange = () => {
+
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -18,7 +21,17 @@ const Auth = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">{ isSignup ? 'Sign up' : 'Sign in' }</Typography>
-        <form className={classes.form} onSubmit={handleSubmit}></form>
+        <form className={classes.form} onSubmit={handleSubmit}>
+        <Grid container spacing={2}>
+            { 
+              isSignup && (
+              <>
+                <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half />
+                <Input name="lastName" label="Last Name" handleChange={handleChange} half />
+              </>
+            )}
+          </Grid>
+        </form>
       </Paper>
     </Container>
   )
