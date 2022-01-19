@@ -13,7 +13,6 @@ const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
   
   const [postData, setPostData] = useState({
-    creator: '', 
     title: '', 
     message: '', 
     tags: '', 
@@ -40,7 +39,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const clear = () => {
    //  add clear functionality 
    setCurrentId(null);
-   setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
+   setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   }
 
      
@@ -55,17 +54,6 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaview' }</Typography>
-
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(element) =>
-            setPostData({ ...postData, creator: element.target.value })
-          }
-        />
         <TextField
           name="title"
           variant="outlined"
