@@ -54,7 +54,7 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaview' }</Typography>
+        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaviewwwww' }</Typography>
 
         <TextField
           name="creator"
