@@ -7,6 +7,10 @@ const Auth = () => {
   const isSignup = false;
   const classes = useStyles();
 
+  const handleSubmit = () => {
+
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
@@ -14,6 +18,7 @@ const Auth = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">{ isSignup ? 'Sign up' : 'Sign in' }</Typography>
+        <form className={classes.form} onSubmit={handleSubmit}></form>
       </Paper>
     </Container>
   )
