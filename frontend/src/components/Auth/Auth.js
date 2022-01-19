@@ -13,7 +13,7 @@ const Auth = () => {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">Sign in</Typography>
+        <Typography component="h1" variant="h5">{ isSignup ? 'Sign up' : 'Sign in' }</Typography>
       </Paper>
     </Container>
   )
