@@ -57,8 +57,6 @@ const Auth = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(formData);
-
     if (isSignup) {
       // google fix ::
       // dispatch(signup(formData, history));
