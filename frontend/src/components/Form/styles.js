@@ -8,17 +8,29 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
+    backgroundColor:'#e4e6f3',
   },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+
   },
   fileInput: {
     width: '97%',
     margin: '10px 0',
+    
   },
   buttonSubmit: {
+    marginTop:10,
     marginBottom: 10,
+    color:'black',
+    backgroundColor:'#0fb856',
+
   },
+  buttonClear: {
+    color:'black',
+    backgroundColor:'#e33540',
+
+  }
 }));
