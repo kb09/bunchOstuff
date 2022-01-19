@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, {decode} from "jsonwebtoken";
 
 const auth = async (req, res, next) => {
   try {
@@ -6,11 +6,11 @@ const auth = async (req, res, next) => {
       const isCustomAuth = token.length < 500; // if lenght is less than 500 then the token is our otherwise external providers
 
       let decodedData;
-      if (token && isCustomAuth) {      
-        decodedData = jwt.verify(token, secret); // local auth
-  
+      if(token && isCustomAuth) {      
+        decodedData = jwt.verify(token, 'test'); // local auth
         req.userId = decodedData?.id;
-      } else {
+      } 
+      else {
         decodedData = jwt.decode(token); //external auth provider
   
         req.userId = decodedData?.sub;
