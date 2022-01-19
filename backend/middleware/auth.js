@@ -2,7 +2,7 @@ import jwt, {decode} from "jsonwebtoken";
 
 const auth = async (req, res, next) => {
   try {
-      const token = req.headers.authorization.split(" ")[1];
+      const token = req.headers.Authorization.split(" ")[1];
       const isCustomAuth = token.length < 500; // if lenght is less than 500 then the token is our otherwise external providers
 
       let decodedData;
