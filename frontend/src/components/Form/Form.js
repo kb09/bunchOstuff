@@ -23,24 +23,25 @@ const Form = ({ currentId, setCurrentId }) => {
   
   useEffect(() =>  {
     if(post) setPostData(post);
-  }, [post])
+  }, [post]);
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(currentId) {
-      
-      dispatch(updatePost(currentId, postData));
-    } else {
+    if(currentId === 0) {
       
       dispatch(createPost(postData));
+      clear();
+    } else {
+      
+      dispatch(updatePost(currentId, postData));
+      clear();
     }
-    clear();
-  }
+  };
   const clear = () => {
    //  add clear functionality 
    setCurrentId(null);
    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
-  }
+  };
 
      
 
