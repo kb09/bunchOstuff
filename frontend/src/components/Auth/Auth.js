@@ -3,6 +3,8 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import useStyles from './styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+import Input from './Input';
+
 const Auth = () => {
   const isSignup = false;
   const classes = useStyles();
