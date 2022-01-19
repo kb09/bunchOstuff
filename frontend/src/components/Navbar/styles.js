@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
-    backgroundColor:'#b2eefa',
+    backgroundColor:'#fdfff7',
     
   },
   heading: {

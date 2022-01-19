@@ -104,16 +104,7 @@ const Form = ({ currentId, setCurrentId }) => {
               setPostData({ ...postData, selectedFile: base64 })
             }
           />
-          <Button
-            className={classes.buttonSubmit}
-            variant="contained"
-            // color="primary"
-            size="larger"
-            type="submit"
-            fullWidth
-          >
-            Submit
-          </Button>
+
           <Button
            className={classes.buttonClear} ///// 
             variant="contained"
@@ -124,6 +115,19 @@ const Form = ({ currentId, setCurrentId }) => {
           >
             Clear All
           </Button>
+
+
+          <Button
+            className={classes.buttonSubmit}
+            variant="contained"
+            // color="primary"
+            size="larger"
+            type="submit"
+            halfWidth
+          >
+            Submit
+          </Button>
+        
         </div>
       </form>
     </Paper>

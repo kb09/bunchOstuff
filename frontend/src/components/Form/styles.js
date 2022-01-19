@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
 
   },
   buttonClear: {
-    marginLeft:20,
+    marginLeft:50,
     color:'black',
     backgroundColor:'#e33540',
 
