@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, AppBar, Button, Toolbar, Avatar } from '@material-ui/core';
+import { Typography, AppBar, Button, Toolbar, Avatar, Switch } from '@material-ui/core';
 import dejaview from "../../images/dejaview.png";
 import useStyles from "./styles";
 import { Link} from 'react-router-dom';
