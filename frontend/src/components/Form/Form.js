@@ -29,7 +29,7 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
     if(currentId === 0) {
       
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData}));
       clear();
     } else {
       
