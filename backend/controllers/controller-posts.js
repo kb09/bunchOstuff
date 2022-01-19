@@ -66,7 +66,7 @@ export const likePost = async (req, res) => {
   } else {
     post.likes = post.likes.filter((id) => id !== String(req.userId));//dislike the post
   }
-  const updatedPost = await PostInfo.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true }); // gets id of liked and adds a like count 
+  const updatedPost = await PostInfo.findByIdAndUpdate(id, post, { new: true }); // gets id of liked and adds a like count 
   
   res.json(updatedPost);
 }
