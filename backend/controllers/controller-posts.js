@@ -8,47 +8,61 @@ helps keep code clean
 
 export const getPosts = async (req, res) => {
   try {
-    const postMessage = await PostInfo.find()
+    const postMessage = await PostInfo.find();
 
+    res.status(200).json(postMessage);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 
-    res.status(200).json(postMessage)
+export const getPostsBySearch = async (req, res) => {
+  const { searchQuery, tags } = req.query;
+
+  try {
+    const title = new RegExp(searchQuery, "i");
+
+    const posts = await PostInfo.find({ $or: [{ title }, { tags: { $in: tags.split(",") } }] });
+  
+    res.json({data: posts})
 
   } catch (error) {
     res.status(404).json({message: error.message})
-    
   }
-}
+};
 
 export const createPost = async (req, res) => {
-  const post = req.body
+  const post = req.body;
 
-  const newPost = new PostInfo({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
-
+  const newPost = new PostInfo({
+    ...post,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
 
   try {
-    await newPost.save()
+    await newPost.save();
 
-    res.status(201).json(newPost)
+    res.status(201).json(newPost);
   } catch (error) {
-    res.status(409).json({message: error.message})
+    res.status(409).json({ message: error.message });
   }
-}
+};
 
 export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
   const post = req.body;
 
-  if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id'); //chech if an _id is real db mongoose id
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).send("No post with that id"); //chech if an _id is real db mongoose id
 
-  
-  const updatedPost = await PostInfo.findByIdAndUpdate(_id, { ... post, _id }, { new: true }); //if id is valid update a post
+  const updatedPost = await PostInfo.findByIdAndUpdate(
+    _id,
+    { ...post, _id },
+    { new: true }
+  ); //if id is valid update a post
   res.json(updatedPost);
-}
-
-
-
-
-
+};
 
 export const likePost = async (req, res) => {
   const { id } = req.params;
@@ -57,28 +71,29 @@ export const likePost = async (req, res) => {
     return res.json({ message: "Unauthenticated" });
   } //check user's auth
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
-  const post = await PostInfo.findById(id); // finds post by id 
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`post with id: ${id} does not exist`);
+  const post = await PostInfo.findById(id); // finds post by id
 
-  const index = post.likes.findIndex((id) => id ===String(req.userId));
+  const index = post.likes.findIndex((id) => id === String(req.userId));
 
   if (index === -1) {
-    post.likes.push(req.userId);//like the post
+    post.likes.push(req.userId); //like the post
   } else {
-    post.likes = post.likes.filter((id) => id !== String(req.userId));//dislike the post
+    post.likes = post.likes.filter((id) => id !== String(req.userId)); //dislike the post
   }
-  const updatedPost = await PostInfo.findByIdAndUpdate(id, post, { new: true }); // gets id of liked and adds a like count 
-  
-  res.json(updatedPost);
-}
+  const updatedPost = await PostInfo.findByIdAndUpdate(id, post, { new: true }); // gets id of liked and adds a like count
 
+  res.json(updatedPost);
+};
 
 export const deletePost = async (req, res) => {
   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`post with id: ${id} does not exist`);
 
-  await PostInfo.findByIdAndRemove(id);  ///////
+  await PostInfo.findByIdAndRemove(id); ///////
 
-  res.json({ message:'Post has been deleted' });
-}
+  res.json({ message: "Post has been deleted" });
+};
