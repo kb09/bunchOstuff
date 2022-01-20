@@ -6,11 +6,14 @@ import { getPosts } from "../../actions/posts";
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
-import backgroud from '../../images/background.png'
+
+
+
 
 
 
 const Home = () => {
+
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
 
@@ -19,6 +22,7 @@ const Home = () => {
   }, [currentId, dispatch]);
 
   return (
+   <div className="background">
 
     <Grow in>
       <Container>
@@ -33,6 +37,8 @@ const Home = () => {
     
       </Container>
     </Grow>
+
+    </div>
   );
 };
 
