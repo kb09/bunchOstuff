@@ -92,7 +92,7 @@ const Auth = () => {
   //   }
   // };
 
-  // const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
+  // const googleError = () => console.log('Google Sign In was unsuccessful. Try again later');
   // end
 
   return (
