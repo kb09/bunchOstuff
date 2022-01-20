@@ -17,6 +17,7 @@ const Home = () => {
   const classes = useStyles();
 
   const [currentId, setCurrentId] = useState(0);
+  const [search, setSearch] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
