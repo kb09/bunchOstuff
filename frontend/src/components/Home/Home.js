@@ -23,6 +23,12 @@ const Home = () => {
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
+  
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) { //enter key 13
+      //search for an ad
+    }
+  };
 
   return (
    <div className="background">
