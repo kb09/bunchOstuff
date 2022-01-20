@@ -85,7 +85,7 @@ const Navbar = () => {
               {user.result.name.charAt(0)}{" "}
             </Avatar> ////////////// */}
             <Typography className={classes.userName} variant="h6">
-              {user.result.name}
+              {`Logged in: ${user.result.name}`}
             </Typography>
             <Button
               variant="contained"

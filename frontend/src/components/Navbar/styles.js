@@ -15,9 +15,15 @@ export default makeStyles((theme) => ({
   heading: {
     color: '#6173ea',
     textDecoration: 'none',
+    // border:'solid',
+    marginLeft: '65px',
+
   },
   image: {
-    marginLeft: '15px',
+    marginLeft: '65px',
+    // border:'solid',
+    width: '200px',
+    height:'100px',
   },
   toolbar: {
     display: 'flex',
