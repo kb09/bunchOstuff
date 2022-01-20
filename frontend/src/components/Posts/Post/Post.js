@@ -78,10 +78,6 @@ const Post = ({ post, setCurrentId }) => {
       </Button>)
       } 
       
-      
-      
-      
-      
       {/* Checking if user is creator of post */}  {/* //////////////// googleID */}
      
 
