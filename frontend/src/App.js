@@ -13,7 +13,8 @@ const App = () => (
  
   
       <BrowserRouter> 
-       <Navbar/>
+      <Navbar/>
+    
         <Container maxWidth="lg">
        
     
