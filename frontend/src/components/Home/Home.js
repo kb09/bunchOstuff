@@ -12,6 +12,7 @@ import ChipInput from 'material-ui-chip-input';
 
 
 
+import Pagination from "../Pagination";
 
 const Home = () => {
   const classes = useStyles();
@@ -67,19 +68,15 @@ const Home = () => {
                <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
               </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
+              <Paper elevation={6}>
+                <Pagination />
+              </Paper>
           </Grid>
         </Grid>
-    
       </Container>
     </Grow>
-
     </div>
   );
 };
-
-
-
-
-
 
 export default Home;
