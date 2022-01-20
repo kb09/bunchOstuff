@@ -41,11 +41,16 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
 
-      <div className={classes.overlay2}>
+      {
+      (user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && 
+      
+      
+      (<div className={classes.overlay2}>
         <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}> 
           EDIT
         </Button> 
-      </div>
+      </div>)
+      }
 
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
@@ -66,7 +71,21 @@ const Post = ({ post, setCurrentId }) => {
         <Likes/>
       </Button>
 
-      <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+      {
+      (user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && 
+      (<Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
+        <DeleteIcon fontSize="small" /> Delete
+      </Button>)
+      } 
+      
+      
+      
+      
+      
+      {/* Checking if user is creator of post */}  {/* //////////////// googleID */}
+     
+
+
       </CardActions>
     </Card>
   );
