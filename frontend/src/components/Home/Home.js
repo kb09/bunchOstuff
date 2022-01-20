@@ -27,7 +27,15 @@ const Home = () => {
   
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) { //enter key 13
-      //search for an ad
+      searchAd();//search for an ad
+    }
+  };
+
+  const searchAd = () => {
+    if (search.trim() || tags) {
+      //dispatch => fetch search ads
+    } else {
+      history.push('/');
     }
   };
   
@@ -55,6 +63,7 @@ const Home = () => {
                 label="Search Tags"
                 variant="outlined"
               />
+               <Button onClick={searchAd} className={classes.searchButton} variant="contained" color="primary">Search</Button>
               </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
