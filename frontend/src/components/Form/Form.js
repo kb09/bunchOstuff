@@ -62,7 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Create a Dejaview' }</Typography>
+        <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Post Your Ad' }</Typography>
         <TextField
           name="title"
           variant="outlined"
@@ -104,25 +104,30 @@ const Form = ({ currentId, setCurrentId }) => {
               setPostData({ ...postData, selectedFile: base64 })
             }
           />
+
           <Button
-            className={classes.buttonSubmit}
-            variant="contained"
-            color="primary"
-            size="larger"
-            type="submit"
-            fullWidth
-          >
-            Submit
-          </Button>
-          <Button
+           className={classes.buttonClear} ///// 
             variant="contained"
             color="warning"
             size="medium"
             onClick={clear}
-            fullWidth
+            halfWidth
           >
             Clear All
           </Button>
+
+
+          <Button
+            className={classes.buttonSubmit}
+            variant="contained"
+            // color="primary"
+            size="larger"
+            type="submit"
+            halfWidth
+          >
+            Submit
+          </Button>
+        
         </div>
       </form>
     </Paper>
