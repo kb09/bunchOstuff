@@ -6,6 +6,9 @@ import { getPosts } from "../../actions/posts";
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
+import backgroud from '../../images/background.png'
+
+
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
@@ -16,6 +19,7 @@ const Home = () => {
   }, [currentId, dispatch]);
 
   return (
+
     <Grow in>
       <Container>
         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
@@ -26,6 +30,7 @@ const Home = () => {
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
         </Grid>
+    
       </Container>
     </Grow>
   );

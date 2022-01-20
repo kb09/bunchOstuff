@@ -9,6 +9,7 @@ import Garagejiji from "../../images/Garagejiji.png";
 import useStyles from "./styles";
 import decode from "jwt-decode";
 
+
 // google task ::
 // import { Link } from "react-router-dom";
   // google fix ::
@@ -71,6 +72,7 @@ const Navbar = () => {
           src={Garagejiji}
           alt="Garagejiji"
           height="60"
+          
         />
       </div>
       <Toolbar className={classes.toolbar}>

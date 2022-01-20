@@ -24,6 +24,7 @@ export default makeStyles((theme) => ({
     // border:'solid',
     width: '200px',
     height:'100px',
+    
   },
   toolbar: {
     display: 'flex',
@@ -40,7 +41,7 @@ export default makeStyles((theme) => ({
   userName: {
     display: 'flex',
     alignItems: 'center',
-    
+    color: '#6173ea', 
   },
   brandContainer: {
     display: 'flex',
@@ -51,9 +52,8 @@ export default makeStyles((theme) => ({
     backgroundColor: deepPurple[500],
   },
   logout:{
+    marginRight:'30px',
     color: '#6173ea',
   },
-  userName:{
-    color: '#6173ea',
-  }
+  
 }));

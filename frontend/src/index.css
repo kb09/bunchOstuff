@@ -6,9 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #FFA9A0; */
-  background-image: url("https://www.google.ca/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fopen-garage-door&psig=AOvVaw0i73nlqTLI9Y1uiJl3CpnS&ust=1642731840628000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMCB3qajv_UCFQAAAAAdAAAAABAD");
+  background-image:url("https://www.google.ca/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fopen-garage-door&psig=AOvVaw0i73nlqTLI9Y1uiJl3CpnS&ust=1642731840628000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMCB3qajv_UCFQAAAAAdAAAAABAD");
   background-attachment: fixed;
   background-size: cover;
+
+  
 }
 
 code {
