@@ -13,7 +13,8 @@ import Form from '../Form/Form';
 
 
 const Home = () => {
-
+  const classes = useStyles();
+  
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
 
@@ -25,8 +26,8 @@ const Home = () => {
    <div className="background">
 
     <Grow in>
-      <Container>
-        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+      <Container maxWidth="xl">
+        <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
           <Grid item xs={12} sm={7}>
             <Posts setCurrentId={setCurrentId} />
           </Grid>
