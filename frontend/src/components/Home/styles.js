@@ -17,4 +17,10 @@ export default makeStyles((theme) => ({
       flexDirection: 'column-reverse',
     },
   },
+  pages:{
+    marginTop:'20px',
+    marginBottom:'20px',
+    backgroundColor:'#e4e6f3',
+    padding:'10px',
+  }
 }));
