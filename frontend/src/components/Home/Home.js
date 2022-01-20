@@ -7,7 +7,13 @@ import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
 
+
+
+
+
+
 const Home = () => {
+
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
 
@@ -16,6 +22,8 @@ const Home = () => {
   }, [currentId, dispatch]);
 
   return (
+   <div className="background">
+
     <Grow in>
       <Container>
         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
@@ -26,8 +34,11 @@ const Home = () => {
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
         </Grid>
+    
       </Container>
     </Grow>
+
+    </div>
   );
 };
 
