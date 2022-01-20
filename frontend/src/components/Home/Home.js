@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Grid, Container, Grow, AppBar, TextField, Button, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux'
 import { getPosts } from "../../actions/posts";
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import useStyles from './styles';
@@ -20,22 +20,23 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
   
   const handleKeyPress = (e) => {
-    if (e.keyCode === 13) { //enter key 13
-      searchAd();//search for an ad
+    if (e.keyCode === 13) { //enter key = 13
+      searchPost();//search for a post
     }
   };
 
-  const searchAd = () => {
-    if (search.trim() || tags) {
-      //dispatch => fetch search ads
+  const searchPost = () => {
+    if (search.trim()) {
+      //dispatch => fetch search posts
     } else {
-      history.push('/');
+      navigate.push('/');
     }
   };
   
@@ -54,7 +55,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
               <AppBar className={classes.appBarSearch} position="static" color="inherit">
-                <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Ads" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+                <TextField onKeyPress={handleKeyPress} name="search" variant="outlined" label="Search Posts" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
                 <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
@@ -63,7 +64,7 @@ const Home = () => {
                 label="Search Tags"
                 variant="outlined"
               />
-               <Button onClick={searchAd} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+               <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
               </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
