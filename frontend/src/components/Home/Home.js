@@ -16,6 +16,7 @@ import ChipInput from 'material-ui-chip-input';
 const Home = () => {
   const classes = useStyles();
 
+  const [tags, setTags] = useState([]);
   const [currentId, setCurrentId] = useState(0);
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const Home = () => {
       //search for an ad
     }
   };
+  
+  const handleAdd = (tag) => setTags([...tags, tag]);
+
+  const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete));
 
   return (
    <div className="background">
@@ -45,8 +50,8 @@ const Home = () => {
                 <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
-                onAdd={}
-                onDelete={}
+                onAdd={handleAdd}
+                onDelete={handleDelete}
                 label="Search Tags"
                 variant="outlined"
               />
