@@ -56,6 +56,16 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
+
+      <img
+          className={classes.image}
+          src={Garagejiji}
+          alt="Garagejiji"
+          height="60"
+          
+        />
+
+
       <div className={classes.brandContainer}>
         <Typography
           component={Link}
@@ -67,13 +77,7 @@ const Navbar = () => {
          Garagejiji
         </Typography>{" "}
         {/* component={Link} to go to home page */}
-        <img
-          className={classes.image}
-          src={Garagejiji}
-          alt="Garagejiji"
-          height="60"
-          
-        />
+      
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (

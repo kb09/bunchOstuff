@@ -42,7 +42,8 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     color: '#6173ea', 
-  },
+    marginLeft:'68px',
+    },
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
