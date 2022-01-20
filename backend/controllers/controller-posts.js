@@ -60,7 +60,8 @@ export const likePost = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`post with id: ${id} does not exist`);
   const post = await PostInfo.findById(id); // finds post by id 
 
-  const index = post.likes.findIndex((id) => id === String(req.userId));
+  const index = post.likes.findIndex((id) => id ===String(req.userId));
+
   if (index === -1) {
     post.likes.push(req.userId);//like the post
   } else {
