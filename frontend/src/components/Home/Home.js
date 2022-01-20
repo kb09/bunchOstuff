@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Grid, Container, Grow, AppBar, TextField, Button, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux'
 import { getPosts } from "../../actions/posts";
-
+import { useHistory, useLocation } from 'react-router-dom';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
