@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import { Typography, AppBar, Button, Toolbar, Avatar } from "@material-ui/core";
 import dejaview from "../../images/dejaview.png";
 import useStyles from "./styles";
+import decode from "jwt-decode";
 
 // google task ::
 // import { Link } from "react-router-dom";
@@ -41,6 +42,12 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token)
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout()
+    }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
