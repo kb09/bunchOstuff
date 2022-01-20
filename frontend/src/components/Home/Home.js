@@ -5,6 +5,7 @@ import { getPosts } from "../../actions/posts";
 import { useHistory, useLocation } from 'react-router-dom';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
+import useStyles from './styles';
 
 
 
