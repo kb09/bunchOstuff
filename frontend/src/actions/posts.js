@@ -30,10 +30,10 @@ export const createPost = (post, navigate) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post); // post api request to a backend server
     
+    navigate(`/posts`)
     
     dispatch({ type: 'CREATE', payload: data});
     
-    navigate(`/posts`)
   } catch (err) {
     console.log(err);
   };
