@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { getPostsBySearch } from "../../actions/posts";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";

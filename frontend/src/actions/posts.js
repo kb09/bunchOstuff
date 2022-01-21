@@ -1,14 +1,16 @@
-import * as api from '../api/index.js';
+import * as api from "../api/index.js";
 
-
-
+// Action Creators
 export const getPosts = (page) => async (dispatch) => {
   try {
+    const {
+      data: { data, currentPage, numberOfPages },
+    } = await api.fetchPosts(page);
 
-    const { data: { data, currentPage, numberOfPages } } = await api.fetchPosts(page);
-
-    dispatch({ type: "FETCH_ALL", payload: { data, currentPage, numberOfPages } });
-
+    dispatch({
+      type: "FETCH_ALL",
+      payload: { data, currentPage, numberOfPages },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -16,11 +18,11 @@ export const getPosts = (page) => async (dispatch) => {
 
 export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try {
-
-    const { data: { data } } = await api.fetchPostsBySearch(searchQuery);
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
 
     dispatch({ type: "FETCH_BY_SEARCH", payload: { data } });
-
   } catch (error) {
     console.log(error);
   }
@@ -28,14 +30,15 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
 
 export const createPost = (post, navigate) => async (dispatch) => {
   try {
-
     const { data } = await api.createPost(post);
 
     dispatch({ type: "CREATE", payload: data });
 
     navigate("/posts");
-  } catch (error) {
-    console.log(error);
+
+    // navigate(`/posts/${data._id}`)
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -50,7 +53,7 @@ export const updatePost = (id, post) => async (dispatch) => {
 };
 
 export const likePost = (id) => async (dispatch) => {
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   try {
     const { data } = await api.likePost(id, user?.token);
