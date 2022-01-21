@@ -67,17 +67,19 @@ const Home = () => {
               <Posts setCurrentId={setCurrentId} />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
+            <Form currentId={currentId} setCurrentId={setCurrentId} />
+
               {/* search bar */}
               <AppBar
                 className={classes.appBarSearch}
                 position="static"
                 color="inherit"
               >
-                <TextField
+                <TextField 
                   onKeyPress={handleKeyPress}
                   name="search"
                   variant="outlined"
-                  label="Search Posts"
+                  label="Search Ads"
                   fullWidth
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
@@ -90,16 +92,15 @@ const Home = () => {
                   label="Search Tags"
                   variant="outlined"
                 />
-                <Button
+                <Button 
                   onClick={searchPost}
                   className={classes.searchButton}
                   variant="contained"
-                  color="primary"
+                  // color="primary"
                 >
                   Search
                 </Button>
               </AppBar>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
 

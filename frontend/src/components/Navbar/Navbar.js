@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import {useDispatch} from "react-redux";
 // end
 
-import { Typography, AppBar, Button, Toolbar, Avatar } from "@material-ui/core";
+import { Typography, AppBar, Button, Toolbar} from "@material-ui/core";
 import Garagejiji from "../../images/Garagejiji.png";
 import useStyles from "./styles";
 import decode from "jwt-decode";
@@ -82,14 +82,6 @@ const Navbar = () => {
       <Toolbar className={classes.toolbar}>
         {user ? (
           <div className={classes.profile}>
-            {/* <Avatar
-              className={classes.purple}
-              alt={user.result.name}
-              src={user.result.imageUrl}
-            >
-              {" "}
-              {user.result.name.charAt(0)}{" "}
-            </Avatar> ////////////// */}
             <Typography className={classes.userName} variant="h6">
               {`Logged in: ${user.result.name}`}
             </Typography>

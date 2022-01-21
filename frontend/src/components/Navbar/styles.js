@@ -10,7 +10,9 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '10px',
     backgroundColor:'#fdfff7',
-    
+    boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
+    // borderBottom:'solid',
+    // color:'red',
   },
   heading: {
     color: '#6173ea',
@@ -55,6 +57,8 @@ export default makeStyles((theme) => ({
   logout:{
     marginRight:'30px',
     color: '#6173ea',
+    boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
+
   },
   
 }));
