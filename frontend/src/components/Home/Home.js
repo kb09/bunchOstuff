@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Container,
@@ -9,7 +9,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 import { useNavigate, useLocation } from "react-router-dom";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
@@ -34,7 +34,6 @@ const Home = () => {
 
   const query = useQuery();
   const page = query.get('page') || 1;
-  const searchQuery = query.get('searchQuery');
 
 
   const handleKeyPress = (e) => {

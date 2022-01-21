@@ -42,7 +42,7 @@ const Post = ({ post, setCurrentId }) => {
       </div>
 
       {
-      (user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && 
+      (user?.result?._id === post?.creator || user?.result?.googleId === post?.creator) &&
       
       
       (<div className={classes.overlay2}>

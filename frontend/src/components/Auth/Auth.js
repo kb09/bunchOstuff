@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  Avatar,
+  // Avatar,
   Button,
   Paper,
   Grid,
@@ -8,7 +8,7 @@ import {
   Container,
 } from "@material-ui/core";
 import useStyles from "./styles";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+// import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 
 

@@ -2,10 +2,16 @@
 export default (state = [], action) => {
   switch (action.type) {
     case "DELETE":
-        return state.filter((post) => post._id !== action.payload); 
+        // fix start ::
+        // return state.filter((post) => post._id !== action.payload); 
+        return { ...state, posts: state.posts.filter((post) => post._id !== action.payload) };
+        // end
     case "UPDATE":
     case "LIKE": // both update and like will do the same 
-      return state.map((post) => (post._id === action.payload._id ? action.payload : post)); // return an updated post
+      // fix start ::
+      // return state.map((post) => (post._id === action.payload._id ? action.payload : post)); // return an updated post
+      return { ...state, posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post)) };
+      // end
     case "FETCH_ALL":
         return {
           ...state,
@@ -14,9 +20,15 @@ export default (state = [], action) => {
           numberOfPages: action.payload.numberOfPages
         }
     case "FETCH_BY_SEARCH":
-        return { ...state, posts: action.payload};
+      // fix start ::
+        // return { ...state, posts: action.payload};
+        return { ...state, posts: action.payload.data };
+        // end
     case "CREATE":
-        return [...state, action.payload];
+        // fix start ::
+        // return [...state, action.payload];
+        return { ...state, posts: [...state.posts, action.payload] };
+        // end
     default:
         return state;
   }

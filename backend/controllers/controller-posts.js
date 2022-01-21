@@ -1,5 +1,5 @@
-import PostInfo from "../models/postInfo.js";
 import mongoose from "mongoose";
+import PostInfo from "../models/postInfo.js";
 /*
 this is used to create handlers for our routes so we can call 
 them in the routes / post.js instead of having all that code in one file,
@@ -82,7 +82,7 @@ export const likePost = async (req, res) => {
     return res.status(404).send(`post with id: ${id} does not exist`);
   const post = await PostInfo.findById(id); // finds post by id
 
-  const index = post.likes.findIndex((id) => id ===String(req.userId));
+  const index = post.likes.findIndex((id) => id===String(req.userId));
 
   if (index === -1) {
     post.likes.push(req.userId); //like the post

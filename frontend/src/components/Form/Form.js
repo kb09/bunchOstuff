@@ -7,6 +7,8 @@ import FileBase from "react-file-base64";
 
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 
+import {useNavigate} from "react-router-dom"
+
 
 const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
@@ -17,9 +19,13 @@ const Form = ({ currentId, setCurrentId }) => {
     tags: '', 
     selectedFile: ''
   });
-  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  // fix start ::
+  // const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
+  // end
   const dispatch = useDispatch(); //returns a reference to the dispatch
   const user = JSON.parse(localStorage.getItem('profile'));
+  const navigate = useNavigate();
   
   useEffect(() =>  {
     if(post) setPostData(post);
@@ -29,7 +35,7 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
     if(currentId === 0) {
       
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
+      dispatch(createPost({ ...postData, name: user?.result?.name }, navigate));
       clear();
     } else {
       
@@ -42,6 +48,7 @@ const Form = ({ currentId, setCurrentId }) => {
    setCurrentId(null);
    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   };
+  
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
