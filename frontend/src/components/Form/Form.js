@@ -13,12 +13,19 @@ import {useNavigate} from "react-router-dom"
 const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
   
-  const [postData, setPostData] = useState({
-    title: '', 
-    message: '', 
-    tags: '', 
-    selectedFile: ''
-  });
+  // Fix start ::
+  // const [postData, setPostData] = useState({
+  //   title: '', 
+  //   message: '', 
+  //   tags: '', 
+  //   selectedFile: ''
+  // });
+
+  const [postData, setPostData] = useState({ title: '', message: '', tags: [], selectedFile: '' });
+
+  // end
+
+
   // fix start ::
   // const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
@@ -27,9 +34,18 @@ const Form = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const navigate = useNavigate();
   
-  useEffect(() =>  {
-    if(post) setPostData(post);
+
+  // fix start ::
+  // useEffect(() =>  {
+  //   if(post) setPostData(post);
+  // }, [post]);
+
+  useEffect(() => {
+    if (!post?.title) clear();
+    if (post) setPostData(post);
   }, [post]);
+
+  // end
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,11 +59,21 @@ const Form = ({ currentId, setCurrentId }) => {
       clear();
     }
   };
+
+
+
+  // Fix start ::
   const clear = () => {
-   //  add clear functionality 
-   setCurrentId(null);
-   setPostData({ title: '', message: '', tags: '', selectedFile: '' });
+    setCurrentId(0);
+    setPostData({ title: '', message: '', tags: [], selectedFile: '' });
   };
+
+  // const clear = () => {
+  //  //  add clear functionality 
+  //  setCurrentId(null);
+  //  setPostData({ title: '', message: '', tags: '', selectedFile: '' });
+  // };
+  // end
   
   if (!user?.result?.name) {
     return (
@@ -142,3 +168,12 @@ const Form = ({ currentId, setCurrentId }) => {
 };
 
 export default Form;
+
+
+
+
+
+
+
+
+
