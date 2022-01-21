@@ -27,6 +27,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
