@@ -10,14 +10,18 @@ import {
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import useStyles from "./styles";
 import ChipInput from "material-ui-chip-input";
 
 import Pagination from "../Pagination";
-import { mergeClasses } from "@material-ui/styles";
+// import { mergeClasses } from "@material-ui/styles";
+
+function useQuery() { 
+return new URLSearchParams(useLocation().search); 
+}
 
 const Home = () => {
   const classes = useStyles();
@@ -28,10 +32,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
+  const query = useQuery();
+  const page = query.get('page') || 1;
+  const searchQuery = query.get('searchQuery');
+
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
@@ -108,7 +112,7 @@ const Home = () => {
 
            {/* pages */}
            <Paper className={classes.pages} elevation={6}>
-                <Pagination />
+                <Pagination page={page}/>
             </Paper>
 
         </Container>

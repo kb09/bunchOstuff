@@ -7,10 +7,16 @@ helps keep code clean
 */
 
 export const getPosts = async (req, res) => {
-  try {
-    const postMessage = await PostInfo.find();
+  const { page } = req.query;
 
-    res.status(200).json(postMessage);
+  try {
+    const LIMIT = 8;
+    const startIndex = (Number(page) - 1) * LIMIT;
+    const total = await PostInfo.countDocuments({})
+
+    const posts = await PostInfo.find().sort({_id: -1}).limit(LIMIT).skip(startIndex)
+
+    res.status(200).json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)});
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -22,12 +28,13 @@ export const getPostsBySearch = async (req, res) => {
   try {
     const title = new RegExp(searchQuery, "i");
 
-    const posts = await PostInfo.find({ $or: [{ title }, { tags: { $in: tags.split(",") } }] });
-  
-    res.json({data: posts})
+    const posts = await PostInfo.find({
+      $or: [{ title }, { tags: { $in: tags.split(",") } }],
+    });
 
+    res.json({ data: posts });
   } catch (error) {
-    res.status(404).json({message: error.message})
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -75,7 +82,7 @@ export const likePost = async (req, res) => {
     return res.status(404).send(`post with id: ${id} does not exist`);
   const post = await PostInfo.findById(id); // finds post by id
 
-  const index = post.likes.findIndex((id) => id === String(req.userId));
+  const index = post.likes.findIndex((id) => id ===String(req.userId));
 
   if (index === -1) {
     post.likes.push(req.userId); //like the post

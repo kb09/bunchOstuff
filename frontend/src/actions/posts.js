@@ -1,9 +1,11 @@
 import * as api from "../api";
 
 // Action Creators
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page) => async (dispatch) => {
   try {
-    const {data} = await api.fetchPosts()
+    const {data} = await api.fetchPosts(page)
+
+    console.log(data);
 
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (err) {
@@ -15,7 +17,7 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try{
 
     const {data: { data }} = await api.fetchPostsBySearch(searchQuery);
-    dispatch({ type: "FETCH_BY_SEARCH", payload: data });
+    dispatch({ type: "FETCH_BY_SEARCH", payload: { data } });
 
   } catch(error){
     console.log(error);
@@ -24,11 +26,14 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
 }
 
 
-export const createPost = (post) => async (dispatch) => {
+export const createPost = (post, navigate) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post); // post api request to a backend server
+    
+    
     dispatch({ type: 'CREATE', payload: data});
-
+    
+    // navigate(`/posts/${data._id}`)
   } catch (err) {
     console.log(err);
   };
