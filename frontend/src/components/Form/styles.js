@@ -30,6 +30,7 @@ export default makeStyles((theme) => ({
     color:'black',
     backgroundColor:'#0fb856',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
+    opacity:0.8,
 
 
   },
@@ -38,7 +39,7 @@ export default makeStyles((theme) => ({
     color:'black',
     backgroundColor:'#e33540',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
-
+    opacity:0.8,
 
   },
 

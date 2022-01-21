@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
     marginBottom: '1rem',
     display: 'flex',
     padding: '16px',
-    backgroundColor:'#f5faf8',
+    backgroundColor:'#e4e6f3',
     borderRadius:'10px', ///////
     marginTop:'60px',
 
@@ -27,7 +27,8 @@ export default makeStyles((theme) => ({
   searchButton:{
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
     color:'#000',
-    backgroundColor:'#b7d7cc',
+    backgroundColor:'#99a1d1',
+    opacity:0.5,
 
 
   },
