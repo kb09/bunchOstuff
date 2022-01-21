@@ -28,6 +28,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
@@ -42,8 +43,9 @@ const Home = () => {
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") })); //dispatch => fetch search posts
+      navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
-      navigate.push("/");
+      navigate("/");
     }
   };
 
