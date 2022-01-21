@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
     marginBottom: '1rem',
     display: 'flex',
     padding: '16px',
-    backgroundColor:'#d2d8ca',
+    backgroundColor:'#f5faf8',
     borderRadius:'10px', ///////
     marginTop:'60px',
 
@@ -17,6 +17,7 @@ export default makeStyles((theme) => ({
     borderRadius: 4,
     marginTop: '1rem',
     padding: '16px',
+    
   },
   gridContainer: {
     [theme.breakpoints.down('xs')]: {
@@ -26,7 +27,7 @@ export default makeStyles((theme) => ({
   searchButton:{
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
     color:'#000',
-    backgroundColor:'#adb89d',
+    backgroundColor:'#b7d7cc',
 
 
   },
@@ -35,6 +36,7 @@ export default makeStyles((theme) => ({
     marginBottom:'20px',
     backgroundColor:'#e4e6f3',
     padding:'10px',
+    
   },
 
 }));

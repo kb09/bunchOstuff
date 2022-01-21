@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
-    backgroundColor:'#fdfff7',
+    backgroundColor:'#cacee7',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
     // borderBottom:'solid',
     // color:'red',
@@ -59,6 +59,7 @@ export default makeStyles((theme) => ({
     color: '#6173ea',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
 
+    
   },
   
 }));
