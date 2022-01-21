@@ -42,9 +42,9 @@ const Home = () => {
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") })); //dispatch => fetch search posts
-      navigate.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+      navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
-      navigate.push("/");
+      navigate("/");
     }
   };
 
