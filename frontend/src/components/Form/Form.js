@@ -21,7 +21,7 @@ const Form = ({ currentId, setCurrentId }) => {
   //   selectedFile: ''
   // });
 
-  const [postData, setPostData] = useState({ title: '', message: '', tags: [], selectedFile: '' });
+  const [postData, setPostData] = useState({ title: '', message: '', tags: [], selectedFile: '', phone: '', email: '' });
 
   // end
 
@@ -65,7 +65,7 @@ const Form = ({ currentId, setCurrentId }) => {
   // Fix start ::
   const clear = () => {
     setCurrentId(0);
-    setPostData({ title: '', message: '', tags: [], selectedFile: '' });
+    setPostData({ title: '', message: '', tags: [], selectedFile: '', phone: '', email: '' });
   };
 
   // const clear = () => {
@@ -79,7 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant="h6" align="center">
-          Sign In to create your own ads and like other's ads.
+          Sign In to create your post.
         </Typography>
       </Paper>
     );
@@ -116,6 +116,30 @@ const Form = ({ currentId, setCurrentId }) => {
           value={postData.message}
           onChange={(element) =>
             setPostData({ ...postData, message: element.target.value })
+          }
+        />
+        <TextField
+          name="email"
+          variant="outlined"
+          label="Email"
+          fullWidth
+          multiline
+          rows={2}
+          value={postData.email}
+          onChange={(element) =>
+            setPostData({ ...postData, email: element.target.value })
+          }
+        />
+        <TextField
+          name="phone"
+          variant="outlined"
+          label="Phone #"
+          fullWidth
+          multiline
+          rows={1}
+          value={postData.phone}
+          onChange={(element) =>
+            setPostData({ ...postData, phone: element.target.value })
           }
         />
         <TextField

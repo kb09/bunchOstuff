@@ -7,6 +7,8 @@ const postSchema = mongoose.Schema({
   creator: String,
   tags: [String],
   selectedFile: String, // use base64 to turn img to string
+  email: String,//////
+  phone: String,///////
 
   likes: {
     type: [String],
