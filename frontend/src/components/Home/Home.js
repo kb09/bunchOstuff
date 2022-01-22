@@ -36,13 +36,15 @@ const Home = () => {
   const query = useQuery();
   const page = query.get("page") || 1;
 
-  const handleKeyPress = (e) => {
-    if (e.keyCode === 13) {
-      //enter key = 13
-      searchPost(); //search for a post
-    }
-  };
 
+  // const keyPress = (e) => {
+  //   if(e.keyCode == 13){
+  //      console.log('value', e.target.value);
+  //      // put the login here
+  //   }
+
+
+  
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") })); //dispatch => fetch search posts
@@ -53,6 +55,23 @@ const Home = () => {
       navigate("/");
     }
   };
+
+  const handleKeyPress = (e) => {
+
+    if (e.target.value !== "") {
+      searchPost()
+    } 
+
+    
+    
+    
+
+    // if (e.keyCode === 13) {
+    //   //enter key = 13
+    //   searchPost(); //search for a post
+    // }
+  };
+
 
   const handleAdd = (tag) => setTags([...tags, tag]);
 
@@ -79,27 +98,27 @@ const Home = () => {
                 color="inherit"
               >
                 <TextField
+                  className={classes.searchAd}
                   onKeyPress={handleKeyPress}
                   name="search"
                   variant="outlined"
                   label="Search Ads"
-                  // fullWidth
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <ChipInput
-                  // style={{ margin: "10px 0" }}
+                  className={classes.searchTag}
                   value={tags}
                   onAdd={handleAdd}
                   onDelete={handleDelete}
-                  label="Search Tags"
                   variant="outlined"
+                  label="Search Tags"
                 />
                 <Button
-                  onClick={searchPost}
                   className={classes.searchButton}
+                  onClick={searchPost}
                   variant="contained"
-                  // color="primary"
+                  color="primary"
                 >
                   Search
                 </Button>
