@@ -76,17 +76,14 @@ const Home = () => {
                 color="inherit"
               >
                 <TextField
-                  className={classes.searchAd} 
                   onKeyPress={handleKeyPress}
                   name="search"
                   variant="outlined"
                   label="Search Ads"
-                  // fullWidth
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <ChipInput
-                  className={classes.searchTag}
                   style={{ margin: "10px 0" }}
                   value={tags}
                   onAdd={handleAdd}
