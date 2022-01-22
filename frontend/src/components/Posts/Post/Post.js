@@ -73,6 +73,14 @@ const Post = ({ post, setCurrentId }) => {
       <Typography variant="body2" color="textSecondary" component="p"> {post.message} </Typography>
       </CardContent>
 
+      <CardContent>
+      <Typography variant="body2" color="textSecondary" component="p"> {post.email} </Typography>
+      </CardContent>
+
+      <CardContent>
+      <Typography variant="body2" color="textSecondary" component="p"> {post.phone} </Typography>
+      </CardContent>
+
 
 
       <CardActions className={classes.cardActions}> 
@@ -112,15 +120,20 @@ const Post = ({ post, setCurrentId }) => {
       </EmailShareButton> */}
 
       <EmailShareButton
-            url={''}
+            // url={}
+            url={``}
             subject={ `${post.name} is offering: ${post.title}`}
             body={`${post.message}`}
             
+            
 
           >
+            
             <EmailIcon size={"2rem"} round />
+            
           </EmailShareButton>
-
+          
+          
 
 
 
