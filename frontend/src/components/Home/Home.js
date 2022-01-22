@@ -36,15 +36,12 @@ const Home = () => {
   const query = useQuery();
   const page = query.get("page") || 1;
 
-
   // const keyPress = (e) => {
   //   if(e.keyCode == 13){
   //      console.log('value', e.target.value);
   //      // put the login here
   //   }
 
-
-  
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") })); //dispatch => fetch search posts
@@ -57,21 +54,15 @@ const Home = () => {
   };
 
   const handleKeyPress = (e) => {
-
     if (e.target.value !== "") {
-      searchPost()
-    } 
-
-    
-    
-    
+      searchPost();
+    }
 
     // if (e.keyCode === 13) {
     //   //enter key = 13
     //   searchPost(); //search for a post
     // }
   };
-
 
   const handleAdd = (tag) => setTags([...tags, tag]);
 
@@ -89,54 +80,42 @@ const Home = () => {
             spacing={3}
             className={classes.gridContainer}
           >
-
-
             {/* Search Bar :: */}
             <AppBar
-                className={classes.appBarSearch}
-                position="static"
-                color="inherit"
+              className={classes.appBarSearch}
+              position="static"
+              color="inherit"
+            >
+              <TextField
+                className={classes.searchAd}
+                onKeyPress={handleKeyPress}
+                name="search"
+                variant="outlined"
+                label="Search Ads"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <ChipInput
+                className={classes.searchTag}
+                value={tags}
+                onAdd={handleAdd}
+                onDelete={handleDelete}
+                variant="outlined"
+                label="Search Tags"
+              />
+              <Button
+                className={classes.searchButton}
+                onClick={searchPost}
+                variant="contained"
+                color="primary"
               >
-                <TextField
-                  className={classes.searchAd}
-                  onKeyPress={handleKeyPress}
-                  name="search"
-                  variant="outlined"
-                  label="Search Ads"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <ChipInput
-                  className={classes.searchTag}
-                  value={tags}
-                  onAdd={handleAdd}
-                  onDelete={handleDelete}
-                  variant="outlined"
-                  label="Search Tags"
-                />
-                <Button
-                  className={classes.searchButton}
-                  onClick={searchPost}
-                  variant="contained"
-                  color="primary"
-                >
-                  Search
-                </Button>
-              </AppBar>
-            
-            
-
+                Search
+              </Button>
+            </AppBar>
 
             <Grid item xs={12} sm={6} md={3}>
               {/* Form :: */}
-              <Form
-                currentId={currentId}
-                setCurrentId={setCurrentId}
-              />
-
-              
-
-              
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
 
             {/* Cards :: */}

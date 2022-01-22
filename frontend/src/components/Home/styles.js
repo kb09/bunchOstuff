@@ -10,6 +10,15 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    // padding: '16px',
+    // backgroundColor:'#e4e4e4',
+    // borderRadius:'10px',
+    // marginTop:'30px',
+    // marginBottom:'30px',
+    // flexDirection: 'row',
+    // justifyContent: 'space-evenly',
+    // height: '100%',
+ 
   },
 
   pagination: {
@@ -33,16 +42,27 @@ export default makeStyles((theme) => ({
     width: "300px",
     fontSize: "18px",
   },
-  pages: {
-    marginTop: "20px",
-    marginBottom: "20px",
-    backgroundColor: "#e4e6f3",
-    padding: "10px",
+
+  // Our and Victor's changes START ::
+  // pages: {
+  //   marginTop: "20px",
+  //   marginBottom: "20px",
+  //   backgroundColor: "#e4e6f3",
+  //   padding: "10px",
+  // },
+  pages:{
+    marginTop:'20px',
+    marginBottom:'20px',
+    backgroundColor:'#e4e4e4',
+    padding:'10px',
   },
+  // END
+
   searchAd: {
     marginRight: "10px",
     width: "300px",
   },
+
 
   searchTag: {
     width: "300px",

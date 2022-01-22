@@ -104,3 +104,7 @@ export const deletePost = async (req, res) => {
 
   res.json({ message: "Post has been deleted" });
 };
+
+export const show = async (req, res) => { //******* */
+  const { id } = req.params;
+}
