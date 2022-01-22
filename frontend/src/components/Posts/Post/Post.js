@@ -110,7 +110,7 @@ const Post = ({ post, setCurrentId }) => {
 
       <EmailShareButton
             url={''}
-            subject={post.title}
+            subject={ `${post.name} is offering: ${post.title}`}
             body={`${post.message}`}
             
 
@@ -123,7 +123,7 @@ const Post = ({ post, setCurrentId }) => {
 
      <TwitterShareButton 
       //  title={"test"}
-       url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on bunchOstuff.com  `   }
+       url={`${post.name} is offering: ${post.title}, ${post.message}! Search for it on bunchOstuff.com  `   }
        hashtags={post.tags}
       
        
