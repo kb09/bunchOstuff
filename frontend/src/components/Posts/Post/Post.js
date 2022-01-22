@@ -74,20 +74,40 @@ const Post = ({ post, setCurrentId }) => {
       {/* <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
         <Likes/>
       </Button> */}
+
+{/*       
           <FacebookShareButton
        url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on  ${siteUrl}`   }
       //  hashtags={post.tags}
       //  description={post.description}
        
      >
-       <FacebookIcon size={32} round={true} />
-     </FacebookShareButton>
+      <FacebookIcon size={32} round={true} />
+     </FacebookShareButton> */}
+
+      <FacebookShareButton
+        url={`http://google.com`}
+        
+
+        quote= {post.tags}
+        hashtag={post.tags}
+        description={post.description}
+        className="Demo__some-network__share-button"
+      >
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+
+
+
+
+
      <TwitterShareButton 
       //  title={"test"}
-       url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on  ${siteUrl}`   }
+       url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on bunchOstuff.com  `   }
+       hashtags={post.tags}
       
        
-      //  hashtags={post.tags}
+       
       //  description={post.description}
      >
     
