@@ -36,11 +36,7 @@ const Home = () => {
   const query = useQuery();
   const page = query.get("page") || 1;
 
-  // const keyPress = (e) => {
-  //   if(e.keyCode == 13){
-  //      console.log('value', e.target.value);
-  //      // put the login here
-  //   }
+
 
   const searchPost = () => {
     if (search.trim() || tags) {
@@ -54,15 +50,23 @@ const Home = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.target.value !== "") {
-      searchPost();
-    }
+    
+    console.log(e.target.value.length > 0);
 
+    if (e.target.value) {
+      searchPost();
+    } else {
+      navigate("/")
+    }
+    
     // if (e.keyCode === 13) {
     //   //enter key = 13
     //   searchPost(); //search for a post
     // }
   };
+
+
+  
 
   const handleAdd = (tag) => setTags([...tags, tag]);
 
@@ -88,7 +92,8 @@ const Home = () => {
             >
               <TextField
                 className={classes.searchAd}
-                onKeyPress={handleKeyPress}
+                // onKeyPress={handleKeyPress}
+                onKeyUp={handleKeyPress}
                 name="search"
                 variant="outlined"
                 label="Search Ads"
