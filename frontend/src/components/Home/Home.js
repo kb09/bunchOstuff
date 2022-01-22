@@ -20,8 +20,8 @@ import ChipInput from "material-ui-chip-input";
 import Pagination from "../Pagination";
 // import { mergeClasses } from "@material-ui/styles";
 
-function useQuery() { 
-return new URLSearchParams(useLocation().search); 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
 }
 
 const Home = () => {
@@ -34,8 +34,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const query = useQuery();
-  const page = query.get('page') || 1;
-
+  const page = query.get("page") || 1;
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
@@ -47,7 +46,9 @@ const Home = () => {
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") })); //dispatch => fetch search posts
-      navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+      navigate(
+        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
+      );
     } else {
       navigate("/");
     }
@@ -69,36 +70,32 @@ const Home = () => {
             spacing={3}
             className={classes.gridContainer}
           >
-            <Grid item xs={12} sm={6} md={9}>
-              <Posts setCurrentId={setCurrentId} />
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
 
-              {/* search bar */}
-              <AppBar
+
+            {/* Search Bar :: */}
+            <AppBar
                 className={classes.appBarSearch}
                 position="static"
                 color="inherit"
               >
-                <TextField 
+                <TextField
                   onKeyPress={handleKeyPress}
                   name="search"
                   variant="outlined"
                   label="Search Ads"
-                  fullWidth
+                  // fullWidth
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <ChipInput
-                  style={{ margin: "10px 0" }}
+                  // style={{ margin: "10px 0" }}
                   value={tags}
                   onAdd={handleAdd}
                   onDelete={handleDelete}
                   label="Search Tags"
                   variant="outlined"
                 />
-                <Button 
+                <Button
                   onClick={searchPost}
                   className={classes.searchButton}
                   variant="contained"
@@ -107,14 +104,32 @@ const Home = () => {
                   Search
                 </Button>
               </AppBar>
+            
+            
+
+
+            <Grid item xs={12} sm={6} md={3}>
+              {/* Form :: */}
+              <Form
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+              />
+
+              
+
+              
+            </Grid>
+
+            {/* Cards :: */}
+            <Grid item xs={12} sm={6} md={9}>
+              <Posts setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
 
-           {/* pages */}
-           <Paper className={classes.pages} elevation={6}>
-                <Pagination page={page}/>
-            </Paper>
-
+          {/* pages */}
+          <Paper className={classes.pages} elevation={6}>
+            <Pagination page={page} />
+          </Paper>
         </Container>
       </Grow>
     </div>
@@ -122,5 +137,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

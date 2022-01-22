@@ -1,17 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  appBarSearch: {
+    appBarSearch: {
     marginBottom: '1rem',
-    display: 'flex',
     padding: '16px',
-    backgroundColor:'#e4e6f3',
-    borderRadius:'10px', ///////
+    // backgroundColor:'#e4e6f3',
+    // borderRadius:'10px', ///////
     marginTop:'60px',
-
-
-    
+    display: 'flex',
+    flexDirection: "row",
+    justifyContent: "center"
   },
+
   pagination: {
     borderRadius: 4,
     marginTop: '1rem',
@@ -28,7 +28,7 @@ export default makeStyles((theme) => ({
     color:'#000',
     backgroundColor:'#99a1d1',
     opacity:0.5,
-
+    alignItems: 'center'
 
   },
   pages:{

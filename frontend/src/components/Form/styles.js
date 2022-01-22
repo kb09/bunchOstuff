@@ -9,8 +9,9 @@ export default makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     backgroundColor:'#e4e6f3',
-    borderRadius:'10px 100px / 120px;', ///////
-
+    // Form Radius ::
+    // borderRadius:'50px / 50px 10px ;', ///////
+    
   },
   form: {
     display: 'flex',
@@ -26,7 +27,7 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginTop:10,
     marginBottom: 10,
-    marginLeft:10,
+    marginRight:10,
     color:'black',
     backgroundColor:'#0fb856',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
@@ -35,7 +36,7 @@ export default makeStyles((theme) => ({
 
   },
   buttonClear: {
-    marginLeft:50,
+    marginRight:30,
     color:'black',
     backgroundColor:'#e33540',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////

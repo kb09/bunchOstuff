@@ -138,16 +138,7 @@ const Form = ({ currentId, setCurrentId }) => {
             }
           />
 
-          <Button
-           className={classes.buttonClear} ///// 
-            variant="contained"
-            color="warning"
-            size="medium"
-            onClick={clear}
-            halfWidth
-          >
-            Clear All
-          </Button>
+          
 
 
           <Button
@@ -159,6 +150,18 @@ const Form = ({ currentId, setCurrentId }) => {
             halfWidth
           >
             Submit
+          </Button>
+
+
+          <Button
+           className={classes.buttonClear} ///// 
+            variant="contained"
+            color="warning"
+            size="medium"
+            onClick={clear}
+            halfWidth
+          >
+            Clear All
           </Button>
         
         </div>
