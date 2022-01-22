@@ -12,8 +12,11 @@ import { useDispatch} from 'react-redux';
 import useStyles from './styles';
 // import {likePost} from '../../../actions/posts';
 import {deletePost} from '../../../actions/posts';
-import { FacebookShareButton, TwitterShareButton,EmailShareButton } from "react-share";
-import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
+import { TwitterShareButton,EmailShareButton } from "react-share";
+import { 
+  // FacebookIcon, 
+  TwitterIcon, 
+  EmailIcon } from "react-share";
 
 
 const Post = ({ post, setCurrentId }) => {
@@ -21,7 +24,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const dispatch = useDispatch(); //returns a reference to the dispatch
   
-  const siteUrl= <a href='http://localhost:3000/posts'></a> 
+
 
   // const Likes = () => {
   //   if (post.likes.length > 0) {

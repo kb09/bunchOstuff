@@ -7,7 +7,7 @@ import {useDispatch} from "react-redux";
 import { Typography, AppBar, Button, Toolbar} from "@material-ui/core";
 import Garagejiji from "../../images/Garagejiji.png";
 import logo_black from "../../images/logo_black.png";
-import logo_trans from "../../images/logo_trans.png";
+// import logo_trans from "../../images/logo_trans.png";
 import useStyles from "./styles";
 import decode from "jwt-decode";
 

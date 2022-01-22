@@ -9,7 +9,6 @@ export default makeStyles((theme) => ({
     marginBottom:'30px',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    borderRadius: '0px',
     height: '100%',
  
   },
