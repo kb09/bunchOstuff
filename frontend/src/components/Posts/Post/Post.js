@@ -75,16 +75,16 @@ const Post = ({ post, setCurrentId }) => {
         <Likes/>
       </Button> */}
           <FacebookShareButton
-      //  url={}
-       hashtags={post.tags}
-       description={post.description}
+       url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on  ${siteUrl}`   }
+      //  hashtags={post.tags}
+      //  description={post.description}
        
      >
        <FacebookIcon size={32} round={true} />
      </FacebookShareButton>
      <TwitterShareButton 
       //  title={"test"}
-       url={`${post.name}  is offering ${post.title} : ${post.message} ! Search for it on  ${siteUrl}`   }
+       url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on  ${siteUrl}`   }
       
        
       //  hashtags={post.tags}
