@@ -9,10 +9,12 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
-    backgroundColor:'#cacee7',
+    // backgroundColor:'#cacee7',
+    backgroundColor:'#292826',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
     // borderBottom:'solid',
     // color:'red',
+    opacity:'0.9'
   },
   heading: {
     color: '#6173ea',
@@ -25,6 +27,13 @@ export default makeStyles((theme) => ({
     marginLeft: '65px',
     // border:'solid',
     width: '200px',
+    height:'100px',
+    
+  },
+  logo: {
+    marginLeft: '65px',
+    // border:'solid',
+    width: '280px',
     height:'100px',
     
   },
@@ -43,7 +52,7 @@ export default makeStyles((theme) => ({
   userName: {
     display: 'flex',
     alignItems: 'center',
-    color: '#6173ea', 
+    color: '#f9d341', 
     marginLeft:'68px',
     },
   brandContainer: {
