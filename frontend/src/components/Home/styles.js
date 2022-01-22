@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     marginBottom: '1rem',
     display: 'flex',
     padding: '16px',
-    backgroundColor:'#e4e6f3',
+    backgroundColor:'#e4e4e4',
     borderRadius:'10px', ///////
     marginTop:'60px',
 

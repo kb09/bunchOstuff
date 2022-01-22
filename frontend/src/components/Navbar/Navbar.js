@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux";
 
 import { Typography, AppBar, Button, Toolbar} from "@material-ui/core";
 import Garagejiji from "../../images/Garagejiji.png";
+import logo_black from "../../images/logo_black.png";
+import logo_trans from "../../images/logo_trans.png";
 import useStyles from "./styles";
 import decode from "jwt-decode";
 
@@ -65,7 +67,7 @@ const Navbar = () => {
           height="60"
           
         />
-
+      
 
       <div className={classes.brandContainer}>
         <Typography
@@ -75,7 +77,13 @@ const Navbar = () => {
           variant="h2"
           align="center"
         >
-         Garagejiji
+         <img
+          className={classes.logo}
+          src={logo_black}
+          alt="logo_black"
+          height="100"
+          align="center"
+        />
         </Typography>{" "}
         {/* component={Link} to go to home page */}
       
