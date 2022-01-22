@@ -25,6 +25,7 @@ export default makeStyles({
     width:'100%',
     backgroundColor: '#e4e4e4',
     // backgroundColor: 'transparent',
+    borderColor: '#f9d341' //border color 
 
   },
   overlay: {

@@ -62,31 +62,35 @@ const Home = () => {
     <div className="background">
       <Grow in>
         <Container maxWidth="xl">
-                   <Grid
+          <Grid
             container
             justify="space-between"
             alignItems="stretch"
             spacing={3}
             className={classes.gridContainer}
           >
+            <Grid item xs={12} sm={6} md={9}>
+              <Posts setCurrentId={setCurrentId} />
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+            <Form currentId={currentId} setCurrentId={setCurrentId} />
+
               {/* search bar */}
               <AppBar
                 className={classes.appBarSearch}
                 position="static"
                 color="inherit"
               >
-                <TextField
-                  className={classes.searchAd} 
+                <TextField 
                   onKeyPress={handleKeyPress}
                   name="search"
                   variant="outlined"
                   label="Search Ads"
-                  // fullWidth
+                  fullWidth
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <ChipInput
-                  className={classes.searchTag}
                   style={{ margin: "10px 0" }}
                   value={tags}
                   onAdd={handleAdd}
@@ -95,34 +99,15 @@ const Home = () => {
                   variant="outlined"
                 />
                 <Button 
-                  className={classes.searchButton}
                   onClick={searchPost}
+                  className={classes.searchButton}
                   variant="contained"
                   // color="primary"
                 >
                   Search
                 </Button>
               </AppBar>
-          {/* <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={3}
-            className={classes.gridContainer}
-          > */}
-
-            {/* Form :: */}
-            <Grid item xs={12} sm={6} md={3}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
-
-          {/* Cards :: */}
-
-            <Grid item xs={12} sm={6} md={9}>
-              <Posts setCurrentId={setCurrentId} />
-            </Grid>
-
-
           </Grid>
 
            {/* pages */}
