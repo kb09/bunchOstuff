@@ -12,8 +12,8 @@ import { useDispatch} from 'react-redux';
 import useStyles from './styles';
 // import {likePost} from '../../../actions/posts';
 import {deletePost} from '../../../actions/posts';
-import { FacebookShareButton, TwitterShareButton } from "react-share";
-import { FacebookIcon, TwitterIcon } from "react-share";
+import { FacebookShareButton, TwitterShareButton,EmailShareButton } from "react-share";
+import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
 
 
 const Post = ({ post, setCurrentId }) => {
@@ -35,6 +35,8 @@ const Post = ({ post, setCurrentId }) => {
 
   //   return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>; // first to like
   // };
+
+
   
   return (
     <Card className={classes.card}>
@@ -85,7 +87,7 @@ const Post = ({ post, setCurrentId }) => {
       <FacebookIcon size={32} round={true} />
      </FacebookShareButton> */}
 
-      <FacebookShareButton
+      {/* <FacebookShareButton
         url={`http://google.com`}
         
 
@@ -95,8 +97,26 @@ const Post = ({ post, setCurrentId }) => {
         className="Demo__some-network__share-button"
       >
         <FacebookIcon size={32} round />
-      </FacebookShareButton>
+      </FacebookShareButton> */}
 
+      {/* <EmailShareButton 
+      subject="test"
+
+      body={`{$post.message}`}
+      >
+        <EmailIcon size={32} round/>
+
+      </EmailShareButton> */}
+
+      <EmailShareButton
+            url={''}
+            subject={post.title}
+            body={`${post.message}`}
+            
+
+          >
+            <EmailIcon size={"2rem"} round />
+          </EmailShareButton>
 
 
 
