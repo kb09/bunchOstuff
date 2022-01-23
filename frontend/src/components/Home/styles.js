@@ -33,14 +33,16 @@ export default makeStyles((theme) => ({
   },
   searchButton: {
     // boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)", /////////////
-    color: "#000",
-    backgroundColor: "#99a1d1",
+    color: "#694E4E",
+    backgroundColor: "#bba03a",
     // opacity: 0.5,
     alignItems: "center",
     marginLeft: "10px",
     height: "52px",
     width: "300px",
     fontSize: "18px",
+    fontWeight: 'bold',
+    border: "1px solid #694E4E",
   },
 
   // Our and Victor's changes START ::

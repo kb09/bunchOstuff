@@ -111,7 +111,8 @@ const Navbar = () => {
             component={Link}
             to="/auth"
             variant="contained"
-            color="primary"
+            className={classes.login}
+            // color="#f9d341"
           >
             Sign In
           </Button> //  redirect to auth page *

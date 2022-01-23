@@ -21,11 +21,11 @@ export default makeStyles({
     borderRadius: '0px',
     height: '100%',
     position: 'relative',
-    border:'solid',
+    // border:'solid',
     width:'100%',
     backgroundColor: '#e4e4e4',
     // backgroundColor: 'transparent',
-    borderColor: '#f9d341' //border color 
+    borderColor: '#8f8f8d' //border color 
 
   },
   overlay: {
@@ -56,4 +56,7 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  delete: {
+    color: '#cc3100',
+  }
 });

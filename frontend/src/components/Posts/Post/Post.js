@@ -316,8 +316,9 @@ const Post = ({ post, setCurrentId }) => {
         {// user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator && (
           <Button
+            className={classes.delete}
             size="medium"
-            color="secondary"
+            // color="#694E4E"
             onClick={() => dispatch(deletePost(post._id))}
           >
             <DeleteIcon 

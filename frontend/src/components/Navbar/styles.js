@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     opacity:'0.9'
   },
   heading: {
-    color: '#4167f9',
+    color: '#f9d341',
     textDecoration: 'none',
     // border:'solid',
     marginLeft: '65px',
@@ -50,10 +50,12 @@ export default makeStyles((theme) => ({
     
   },
   userName: {
-    display: 'flex',
-    alignItems: 'center',
-    color: '#f9d341', 
-    marginLeft:'68px',
+      display: 'flex',
+      alignItems: 'center',
+      color: '#f9d341', 
+      marginLeft:'20px',
+      fontWeight: '600'
+
     },
   brandContainer: {
     display: 'flex',
@@ -65,10 +67,18 @@ export default makeStyles((theme) => ({
   },
   logout:{
     marginRight:'30px',
-    color: '#4167f9',
-    boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
-
-    
+    backgroundColor:'#bba03a',
+    fontWeight: 'bold',
+    border: "1px solid #694E4E",
+    color: '#4a3737',
+    // boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', //////
   },
-  
+  login:{
+    marginRight:'30px',
+    backgroundColor:'#bba03a',
+    fontWeight: 'bold',
+    border: "1px solid #694E4E",
+    color: '#4a3737',
+    // boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', //////
+  },
 }));
