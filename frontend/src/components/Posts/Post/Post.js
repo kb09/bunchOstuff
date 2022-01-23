@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core/";
 // import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 // import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
+// import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 
 import DeleteIcon from "@material-ui/icons/Delete";
 import moment from "moment";
@@ -52,6 +52,13 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
+
+
+
+
+
+
+
   // const Likes = () => {
   //   if (post.likes.length > 0) {
   //     return post.likes.find(
@@ -73,30 +80,13 @@ const Post = ({ post, setCurrentId }) => {
   //       </>
   //     );
   //   }
-
-
-
-  const Likes = () => {
-    if (post.likes.length > 0) {
-      return post.likes.find(
-        (like) => like === (
-          // user?.result?.googleId || 
-          user?.result?._id)
-      ) ? ( //******googleID */ ------  // if likes array has id of current user
-        <>
-          <FaRecycle />
-          &nbsp;
-          {post.likes.length > 2
-            ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
-        </>
-      ) : (
-        <>
-          <FaRecycle />
-          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
-        </>
-      );
-    }
+  //     return (
+  //       <>
+  //         <ThumbUpAltOutlined fontSize="small" />
+  //         &nbsp;Like
+  //       </>
+  //     ); // first to like
+  //   };
 
 
 
@@ -108,15 +98,58 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
-    
+    const Recycle = () => {
+      if (post.likes.length > 0) {
+        return post.likes.find(
+          (like) => like === (
+            // user?.result?.googleId || 
+            user?.result?._id)
+        ) ? ( //******googleID */ ------  // if likes array has id of current user
+          <>
+            <FaRecycle 
+            size="2.5em" 
+            color="green"
+            // style={{border: '3px solid'}}
+            // style={{strokeWidth: "20"}}
+            />
+            &nbsp;
+            {post.likes.length > 2
+              ? `You and ${post.likes.length - 1} others`
+              : `${post.likes.length} ${post.likes.length > 1 ? "s" : ""}`}
+          </>
+        ) : (
+          <>
+            <FaRecycle 
+            size="2.5em" 
+            color="green" 
+            // style={{border: '3px solid'}}
+            // style={{strokeWidth: "20"}}
+            />
+            &nbsp;{post.likes.length} {post.likes.length === 1 ? "" : ""}
+          </>
+        );
+      }
 
     return (
       <>
-        <ThumbUpAltOutlined fontSize="small" />
-        &nbsp;Like
+        <FaRecycle 
+        size="2.5em" 
+        color="green" 
+        // style={{border: '3px solid'}}
+        // style={{strokeWidth: "20"}}
+        />
+        &nbsp;
       </>
     ); // first to like
   };
+
+
+
+
+
+
+
+
 
   return (
     <Card className={classes.card}>
@@ -214,12 +247,11 @@ const Post = ({ post, setCurrentId }) => {
           disabled={!user?.result}
           onClick={() => dispatch(likePost(post._id))}
         >
-          <FaRecycle 
-          size="2em" 
-          color="green" 
-          // style={{border: '3px solid'}}
+          
+          <Recycle 
+          // onClick={Likes}
           />
-          <Likes />
+          {/* <Likes /> */}
         </Button>
 
         
@@ -288,7 +320,8 @@ const Post = ({ post, setCurrentId }) => {
             color="secondary"
             onClick={() => dispatch(deletePost(post._id))}
           >
-            <DeleteIcon fontSize="small" />
+            <DeleteIcon 
+            fontSize="large" />
             {/* DELETE */}
           </Button>
         )}
