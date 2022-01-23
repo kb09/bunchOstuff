@@ -1,18 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles({
   media: {
-    height: '100px',
-    paddingTop: '50%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',//////ask
-    backgroundBlendMode: 'darken',
+    height: "100px",
+    paddingTop: "50%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", //////ask
+    backgroundBlendMode: "darken",
   },
   border: {
-    border: 'solid',
+    border: "solid",
   },
   fullHeightCard: {
-    height: '100%',
-    
+    height: "100%",
   },
   card: {
     display: 'flex',
@@ -29,32 +28,36 @@ export default makeStyles({
 
   },
   overlay: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px',
-    color: 'white',
+    position: "absolute",
+    top: "10px",
+    left: "10px",
+    color: "white",
   },
   overlay2: {
-    position: 'absolute',
-    top: '10px',
-    right: '10px',
-    color: 'white',
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    color: "white",
   },
   grid: {
-    display: 'flex',
+    display: "flex",
   },
-  details: { // text field
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '10px', 
+  details: {
+    // text field
+    display: "flex",
+    justifyContent: "space-between",
+    margin: "10px",
   },
   title: {
-    padding: '0 16px',
+    padding: "0 16px",
   },
   cardActions: {
-    padding: '0 16px 8px 16px',
-    display: 'flex',
-    justifyContent: 'space-between',
+    padding: "0 16px 8px 16px",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  editButton: {
+    marginLeft: "100px",
   },
   delete: {
     color: '#cc3100',
