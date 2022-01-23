@@ -26,7 +26,7 @@ import {
 } from "react-share";
 
 
-import { FaRecycle } from 'react-icons/fa';
+import { FaRecycle, FaRegEdit } from 'react-icons/fa';
 
 
 
@@ -174,7 +174,11 @@ const Post = ({ post, setCurrentId }) => {
             size="small"
             onClick={() => setCurrentId(post._id)}
           >
-            EDIT
+            <FaRegEdit 
+            className={classes.editButton}
+            size="2em"
+            />
+            {/* EDIT */}
           </Button>
         </div>
       )}
@@ -242,8 +246,9 @@ const Post = ({ post, setCurrentId }) => {
       {/* LIKE */}
       <CardActions className={classes.cardActions}>
         <Button
-          size="small"
-          color="primary"
+          // size="small"
+          // color="primary"
+          style={{color: "green"}}
           disabled={!user?.result}
           onClick={() => dispatch(likePost(post._id))}
         >
