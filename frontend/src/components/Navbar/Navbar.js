@@ -84,7 +84,7 @@ const Navbar = () => {
           height="100"
           align="center"
         />
-        </Typography>{" "}
+        </Typography>
         {/* component={Link} to go to home page */}
       
       </div>
@@ -103,7 +103,7 @@ const Navbar = () => {
               // end
             >
               Logout
-            </Button>{" "}
+            </Button>
             {/* need to write logout logic still  was getting error it can't be empty so didn't add onClick{} part*/}
           </div>
         ) : (

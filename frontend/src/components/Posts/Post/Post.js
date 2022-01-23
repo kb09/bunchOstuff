@@ -50,6 +50,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch(); //returns a reference to the dispatch
 
+  const [style, setStyle] = useState({display: 'none'});
 
 
 
@@ -97,7 +98,7 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
-
+    // Recycle button ::
     const Recycle = () => {
       if (post.likes.length > 0) {
         return post.likes.find(
@@ -149,8 +150,7 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
-    const [style, setStyle] = useState({display: 'none'});
-
+    // const [style, setStyle] = useState({display: 'none'});
     // return (
     //     <div
     //              onMouseEnter={e => {
@@ -209,7 +209,8 @@ const Post = ({ post, setCurrentId }) => {
 
 
       {/* EDIT button :: */}
-      {(user?.result?.googleId === post?.creator ||
+      {(
+        // user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator) && (
         <div className={classes.overlay2}>
           <Button
@@ -241,14 +242,13 @@ const Post = ({ post, setCurrentId }) => {
 
 
       <Typography className={classes.title} variant="h5" gutterBottom>
-        {" "}
-        {post.title}{" "}
+
+        {post.title}
       </Typography>
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {" "}
-          {post.message}{" "}
+          {post.message}
         </Typography>
       </CardContent>
 
@@ -259,8 +259,7 @@ const Post = ({ post, setCurrentId }) => {
           component="p"
           hidden={!user?.result}
         >
-          {" "}
-          {post.email}{" "}
+          {post.email}
         </Typography>
       </CardContent>
 
@@ -271,8 +270,7 @@ const Post = ({ post, setCurrentId }) => {
           component="p"
           hidden={!user?.result}
         >
-          {" "}
-          {post.phone}{" "}
+          {post.phone}
         </Typography>
       </CardContent>
 
@@ -355,18 +353,48 @@ const Post = ({ post, setCurrentId }) => {
         {/* Email button :: */}
         {
         // user?.result?.googleId === post?.creator ||
-        (user?.result?._id || post?.creator) && (
+        (user?.result?._id === post?.creator) ? (
         <EmailShareButton
           // url={}
           url={``}
           subject={`${post.name} is offering: ${post.title}`}
           body={`${post.message}`}
-          disabled={!user?.result}
           style={style}
+          // disabled={!user?.result}
         >
-          <EmailIcon size={"2rem"} round />
+          111111111
+          <EmailIcon 
+          size={"2rem"} round 
+          style={{display: 'block'}}
+          />
         </EmailShareButton>
-        )}
+        ) 
+
+
+        :
+        
+        (user?.result) &&
+        (
+        <EmailShareButton
+          // url={}
+          url={``}
+          subject={`${post.name} is offering: ${post.title}`}
+          body={`${post.message}`}
+          style={style}
+          // disabled={!(user?.result?._id === post?.creator)}
+        >
+          adasdasd
+          <EmailIcon 
+          size={"2rem"} round
+          style={{display: 'block'}}
+          />
+        </EmailShareButton>
+        )
+        }
+
+
+
+
 
 
         
@@ -406,7 +434,7 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
         )}
 
-        {/* Checking if user is creator of post */}{" "}
+        {/* Checking if user is creator of post */}
         {/* //////////////// googleID */}
       </CardActions>
     </Card>
