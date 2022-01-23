@@ -115,7 +115,7 @@ const Post = ({ post, setCurrentId }) => {
             &nbsp;
             {post.likes.length > 2
               ? `You and ${post.likes.length - 1} others`
-              : `${post.likes.length} ${post.likes.length > 1 ? "s" : ""}`}
+              : `${post.likes.length} ${post.likes.length > 1 ? "" : ""}`}
           </>
         ) : (
           <>
