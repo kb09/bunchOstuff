@@ -350,8 +350,23 @@ const Post = ({ post, setCurrentId }) => {
 
       </EmailShareButton> */}
 
+
+
+
+
+
+
+
+
+
+
+
+
+{/* ///////////////////////////////////////////////////////// */}
+
+
         {/* Email button :: */}
-        {
+        {/* {
         // user?.result?.googleId === post?.creator ||
         (user?.result?._id === post?.creator) ? (
         <EmailShareButton
@@ -391,13 +406,88 @@ const Post = ({ post, setCurrentId }) => {
         </EmailShareButton>
         )
         }
+ */}
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* Email button :: */}
+        {
+        // user?.result?.googleId === post?.creator ||
+        (user?.result?._id === post?.creator) && (
+        <EmailShareButton
+          // url={}
+          url={``}
+          subject={`${post.name} is offering: ${post.title}`}
+          body={`${post.message}`}
+          // style={style}
+          // disabled={!user?.result}
+        >
+          <EmailIcon 
+          size={"2rem"} round 
+
+          />
+        </EmailShareButton>
+        ) 
+
+
+        // :
+        
+        // (user?.result) &&
+        // (
+        // <EmailShareButton
+        //   // url={}
+        //   url={``}
+        //   subject={`${post.name} is offering: ${post.title}`}
+        //   body={`${post.message}`}
+        //   style={style}
+        //   // disabled={!(user?.result?._id === post?.creator)}
+        // >
+        //   adasdasd
+        //   <EmailIcon 
+        //   size={"2rem"} round
+        //   style={{display: 'block'}}
+        //   />
+        // </EmailShareButton>
+        // )
+        }
+
+
+
+
+
+
+{/* ///////////////////////////////////////////////////////// */}
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {/* Twitter button :: */}
         {
         // user?.result?.googleId === post?.creator ||
