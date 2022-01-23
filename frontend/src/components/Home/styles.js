@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   appBarSearch: {
     marginBottom: "1rem",
     padding: "16px",
-    backgroundColor: "#e4e6f3",
+    backgroundColor: "#e4e4e4",
     borderRadius: "10px", ///////
     marginTop: "60px",
     display: "flex",

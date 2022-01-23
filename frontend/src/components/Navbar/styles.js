@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     opacity:'0.9'
   },
   heading: {
-    color: '#6173ea',
+    color: '#4167f9',
     textDecoration: 'none',
     // border:'solid',
     marginLeft: '65px',
@@ -65,7 +65,7 @@ export default makeStyles((theme) => ({
   },
   logout:{
     marginRight:'30px',
-    color: '#6173ea',
+    color: '#4167f9',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
 
     
