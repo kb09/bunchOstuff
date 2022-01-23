@@ -14,17 +14,18 @@ export default makeStyles({
     height: "100%",
   },
   card: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    borderRadius: "0px",
-    height: "100%",
-    position: "relative",
-    border: "solid",
-    width: "100%",
-    backgroundColor: "#e4e4e4",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '0px',
+    height: '100%',
+    position: 'relative',
+    // border:'solid',
+    width:'100%',
+    backgroundColor: '#e4e4e4',
     // backgroundColor: 'transparent',
-    borderColor: "#f9d341", //border color
+    borderColor: '#8f8f8d' //border color 
+
   },
   overlay: {
     position: "absolute",
@@ -58,4 +59,7 @@ export default makeStyles({
   editButton: {
     marginLeft: "100px",
   },
+  delete: {
+    color: '#cc3100',
+  }
 });

@@ -29,20 +29,23 @@ export default makeStyles((theme) => ({
     marginTop:10,
     marginBottom: 10,
     marginRight:10,
-    color:'black',
-    backgroundColor:'#0fb856',
+    color:'#694E4E',
+    fontWeight: 'bold',
+    backgroundColor:'#eac949',
     boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
     opacity:0.8,
+    border: "1px solid #694E4E",
 
 
   },
   buttonClear: {
     marginRight:30,
-    color:'black',
-    backgroundColor:'#e33540',
-    boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', /////////////
+    color:'#694E4E',
+    fontWeight: 'bold',
+    backgroundColor:'#ae942e',
+    boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)', //#9c8433
     opacity:0.8,
-
+    border: "1px solid #694E4E",
   },
 
 }));
