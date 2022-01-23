@@ -74,12 +74,16 @@ const Form = ({ currentId, setCurrentId }) => {
   //  setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   // };
   // end
+
+  // const refresh = () => {
+  //   navigate("/")
+  // }
   
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
         <Typography variant="h6" align="center">
-          Sign In to create your post.
+          Sign In to create your Ad.
         </Typography>
       </Paper>
     );
@@ -172,6 +176,7 @@ const Form = ({ currentId, setCurrentId }) => {
             size="larger"
             type="submit"
             halfWidth
+            // onClick={refresh}
           >
             Submit
           </Button>

@@ -8,15 +8,15 @@ import {
   Typography,
 } from "@material-ui/core/";
 // import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
+// import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 
 import DeleteIcon from "@material-ui/icons/Delete";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import {likePost} from '../../../actions/posts';
+import { likePost } from "../../../actions/posts";
 import { deletePost } from "../../../actions/posts";
 import { TwitterShareButton, EmailShareButton } from "react-share";
 import {
@@ -25,22 +25,97 @@ import {
   EmailIcon,
 } from "react-share";
 
+
+import { FaRecycle } from 'react-icons/fa';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch(); //returns a reference to the dispatch
 
+
+
+  // const Likes = () => {
+  //   if (post.likes.length > 0) {
+  //     return post.likes.find(
+  //       (like) => like === (
+  //         // user?.result?.googleId || 
+  //         user?.result?._id)
+  //     ) ? ( //******googleID */ ------  // if likes array has id of current user
+  //       <>
+  //         <ThumbUpAltIcon fontSize="small" />
+  //         &nbsp;
+  //         {post.likes.length > 2
+  //           ? `You and ${post.likes.length - 1} others`
+  //           : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
+  //       </>
+  //     ) : (
+  //       <>
+  //         <ThumbUpAltOutlined fontSize="small" />
+  //         &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
+  //       </>
+  //     );
+  //   }
+
+
+
   const Likes = () => {
     if (post.likes.length > 0) {
-      return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id)) //******googleID */ ------  // if likes array has id of current user
-        ? (
-          <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
-        ) : (
-          <><ThumbUpAltOutlined fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
-        );
+      return post.likes.find(
+        (like) => like === (
+          // user?.result?.googleId || 
+          user?.result?._id)
+      ) ? ( //******googleID */ ------  // if likes array has id of current user
+        <>
+          <FaRecycle />
+          &nbsp;
+          {post.likes.length > 2
+            ? `You and ${post.likes.length - 1} others`
+            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
+        </>
+      ) : (
+        <>
+          <FaRecycle />
+          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
+        </>
+      );
     }
 
-    return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>; // first to like
+
+
+
+
+
+
+
+
+
+
+    
+
+    return (
+      <>
+        <ThumbUpAltOutlined fontSize="small" />
+        &nbsp;Like
+      </>
+    ); // first to like
   };
 
   return (
@@ -82,8 +157,6 @@ const Post = ({ post, setCurrentId }) => {
         {post.title}{" "}
       </Typography>
 
-
-
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {" "}
@@ -91,20 +164,25 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </CardContent>
 
-
-
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p" hidden={!user?.result}>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="p"
+          hidden={!user?.result}
+        >
           {" "}
           {post.email}{" "}
         </Typography>
       </CardContent>
 
-
-
-
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p" hidden={!user?.result}>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="p"
+          hidden={!user?.result}
+        >
           {" "}
           {post.phone}{" "}
         </Typography>
@@ -113,11 +191,51 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* LIKE */}
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
-        <Likes/>
-      </Button>
-        {/*       
+        <Button
+          size="small"
+          color="primary"
+          disabled={!user?.result}
+          onClick={() => dispatch(likePost(post._id))}
+        >
+          <FaRecycle 
+          size="2em" 
+          color="green" 
+          // style={{border: '3px solid'}}
+          />
+          <Likes />
+        </Button>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+        
+        {/*
           <FacebookShareButton
        url={`${post.name}  is offering: ${post.title},  ${post.message} ! Search for it on  ${siteUrl}`   }
       //  hashtags={post.tags}
@@ -145,11 +263,6 @@ const Post = ({ post, setCurrentId }) => {
         <EmailIcon size={32} round/>
 
       </EmailShareButton> */}
-
-
-
-
-          
         <EmailShareButton
           // url={}
           url={``}
@@ -159,12 +272,6 @@ const Post = ({ post, setCurrentId }) => {
         >
           <EmailIcon size={"2rem"} round />
         </EmailShareButton>
-
-
-      
-
-
-
         <TwitterShareButton
           //  title={"test"}
           url={`${post.name} is offering: ${post.title}, ${post.message}! Search for it on bunchOstuff.com  `}
@@ -174,21 +281,15 @@ const Post = ({ post, setCurrentId }) => {
         >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
-
-
-
-
-
-
-        {(
-          // user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
+        {// user?.result?.googleId === post?.creator ||
+        user?.result?._id === post?.creator && (
           <Button
-            size="small"
-            color="primary"
+            size="medium"
+            color="secondary"
             onClick={() => dispatch(deletePost(post._id))}
           >
             <DeleteIcon fontSize="small" />
+            {/* DELETE */}
           </Button>
         )}
         {/* Checking if user is creator of post */}{" "}

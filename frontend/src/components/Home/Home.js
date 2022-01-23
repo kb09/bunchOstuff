@@ -50,15 +50,11 @@ const Home = () => {
   };
 
   const handleKeyPress = (e) => {
-    
-    console.log(e.target.value.length > 0);
-
     if (e.target.value) {
       searchPost();
     } else {
       navigate("/")
     }
-    
     // if (e.keyCode === 13) {
     //   //enter key = 13
     //   searchPost(); //search for a post
