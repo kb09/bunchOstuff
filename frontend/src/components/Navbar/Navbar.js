@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 // end
 
 import { Typography, AppBar, Button, Toolbar} from "@material-ui/core";
-import Garagejiji from "../../images/Garagejiji.png";
+import Bunchofstuff from "../../images/Bunchofstuff.png";
 import logo_black from "../../images/logo_black.png";
 // import logo_trans from "../../images/logo_trans.png";
 import useStyles from "./styles";
@@ -62,8 +62,8 @@ const Navbar = () => {
 
       <img
           className={classes.image}
-          src={Garagejiji}
-          alt="Garagejiji"
+          src={Bunchofstuff}
+          alt="Bunchofstuff"
           height="60"
           
         />
