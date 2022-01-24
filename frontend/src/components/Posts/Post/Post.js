@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Card,
   CardActions,
@@ -50,6 +50,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch(); //returns a reference to the dispatch
 
+  const [style, setStyle] = useState({display: 'none'});
 
 
 
@@ -97,7 +98,7 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
-
+    // Recycle button ::
     const Recycle = () => {
       if (post.likes.length > 0) {
         return post.likes.find(
@@ -149,16 +150,52 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
+    // const [style, setStyle] = useState({display: 'none'});
+    // return (
+    //     <div
+    //              onMouseEnter={e => {
+    //                  setStyle({display: 'block'});
+    //              }}
+    //              onMouseLeave={e => {
+    //                  setStyle({display: 'none'})
+    //              }}
+    //         >
+    //             <button 
+    //             style={style}
+    //             >
+    //               Click</button>
+
+    //     </div>
+    // );
+
+
+
+
+
+
+
 
 
   return (
-    <Card className={classes.card}>
+    <Card 
+    className={classes.card}
+    onMouseEnter={e => {
+      setStyle({display: 'block'});
+    }}
+    onMouseLeave={e => {
+        setStyle({display: 'none'})
+    }}
+    >
+
+
+      {/* Image file :: */}
       <CardMedia
         className={classes.media}
         image={post.selectedFile}
         title={post.title}
       />
-
+      
+      {/* User Info & Set Time :: */}
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
         <Typography variant="body2">
@@ -166,7 +203,14 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </div>
 
-      {(user?.result?.googleId === post?.creator ||
+
+
+
+
+
+      {/* EDIT button :: */}
+      {(
+        // user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator) && (
         <div className={classes.overlay2}>
           <Button
@@ -177,11 +221,18 @@ const Post = ({ post, setCurrentId }) => {
             <FaRegEdit 
             className={classes.editButton}
             size="2em"
+            style={style}
             />
             {/* EDIT */}
           </Button>
         </div>
       )}
+
+
+
+
+
+
 
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">
@@ -189,15 +240,15 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </div>
 
+
       <Typography className={classes.title} variant="h5" gutterBottom>
-        {" "}
-        {post.title}{" "}
+
+        {post.title}
       </Typography>
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {" "}
-          {post.message}{" "}
+          {post.message}
         </Typography>
       </CardContent>
 
@@ -208,8 +259,7 @@ const Post = ({ post, setCurrentId }) => {
           component="p"
           hidden={!user?.result}
         >
-          {" "}
-          {post.email}{" "}
+          {post.email}
         </Typography>
       </CardContent>
 
@@ -220,8 +270,7 @@ const Post = ({ post, setCurrentId }) => {
           component="p"
           hidden={!user?.result}
         >
-          {" "}
-          {post.phone}{" "}
+          {post.phone}
         </Typography>
       </CardContent>
 
@@ -300,38 +349,70 @@ const Post = ({ post, setCurrentId }) => {
         <EmailIcon size={32} round/>
 
       </EmailShareButton> */}
+
+
+
+
+
+        {/* Email button :: */}
+        {(user?.result) && (
         <EmailShareButton
           // url={}
           url={``}
           subject={`${post.name} is offering: ${post.title}`}
           body={`${post.message}`}
-          disabled={!user?.result}
+          style={style}
+          // disabled={!user?.result}
         >
-          <EmailIcon size={"2rem"} round />
+          <EmailIcon 
+          size={"2rem"} round 
+          />
         </EmailShareButton>
+        )}
+
+
+
+
+
+
+
+        {/* Twitter button :: */}
+        {
+        // user?.result?.googleId === post?.creator ||
+        user?.result?._id === post?.creator && (
         <TwitterShareButton
           //  title={"test"}
           url={`${post.name} is offering: ${post.title}, ${post.message}! Search for it on bunchOstuff.com  `}
           hashtags={post.tags}
-          disabled={!user?.result}
+          // disabled={!user?.result}
           //  description={post.description}
+          style={style}
         >
-          <TwitterIcon size={32} round />
+          <TwitterIcon size={32} round 
+          />
         </TwitterShareButton>
-        {// user?.result?.googleId === post?.creator ||
+        )}
+
+
+        {/* Delete button :: */}
+        {
+        // user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator && (
           <Button
             className={classes.delete}
             size="medium"
             // color="#694E4E"
             onClick={() => dispatch(deletePost(post._id))}
+            style={style}
+            
           >
             <DeleteIcon 
             fontSize="large" />
             {/* DELETE */}
           </Button>
         )}
-        {/* Checking if user is creator of post */}{" "}
+
+        {/* Checking if user is creator of post */}
         {/* //////////////// googleID */}
       </CardActions>
     </Card>

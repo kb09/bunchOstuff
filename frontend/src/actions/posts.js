@@ -34,9 +34,12 @@ export const createPost = (post, navigate) => async (dispatch) => {
 
     dispatch({ type: "CREATE", payload: data });
 
-    navigate("/posts");
-
+    // Fix ::
     // navigate(`/posts/${data._id}`)
+    // navigate("/posts");
+    navigate("/");
+    // End
+
   } catch (err) {
     console.log(err);
   }

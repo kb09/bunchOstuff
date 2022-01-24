@@ -18,7 +18,6 @@ const Posts = ({ setCurrentId }) => {
       alignItems="stretch"
       spacing={3}
     >
-      {" "}
       {/* 4 per row maybe make 3 */}
       {posts.map((post) => (
         <Grid key={post._id} item xs={12} sm={12} md={6} lg={3}>
