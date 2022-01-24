@@ -382,7 +382,7 @@ const Post = ({ post, setCurrentId }) => {
         user?.result?._id === post?.creator && (
         <TwitterShareButton
           //  title={"test"}
-          url={`${post.name} is offering: ${post.title}, ${post.message}! Search for it on bunchOstuff.com  `}
+          url={` I am offering: ${post.title}, ${post.message}! Search for it on bunchOstuff.com  `}
           hashtags={post.tags}
           // disabled={!user?.result}
           //  description={post.description}
