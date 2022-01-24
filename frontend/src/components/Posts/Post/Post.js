@@ -354,21 +354,8 @@ const Post = ({ post, setCurrentId }) => {
 
 
 
-
-
-
-
-
-
-
-
-{/* ///////////////////////////////////////////////////////// */}
-
-
         {/* Email button :: */}
-        {/* {
-        // user?.result?.googleId === post?.creator ||
-        (user?.result?._id === post?.creator) ? (
+        {(user?.result) && (
         <EmailShareButton
           // url={}
           url={``}
@@ -377,110 +364,11 @@ const Post = ({ post, setCurrentId }) => {
           style={style}
           // disabled={!user?.result}
         >
-          111111111
           <EmailIcon 
           size={"2rem"} round 
-          style={{display: 'block'}}
           />
         </EmailShareButton>
-        ) 
-
-
-        :
-        
-        (user?.result) &&
-        (
-        <EmailShareButton
-          // url={}
-          url={``}
-          subject={`${post.name} is offering: ${post.title}`}
-          body={`${post.message}`}
-          style={style}
-          // disabled={!(user?.result?._id === post?.creator)}
-        >
-          adasdasd
-          <EmailIcon 
-          size={"2rem"} round
-          style={{display: 'block'}}
-          />
-        </EmailShareButton>
-        )
-        }
- */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* Email button :: */}
-        {
-        // user?.result?.googleId === post?.creator ||
-        (user?.result?._id === post?.creator) && (
-        <EmailShareButton
-          // url={}
-          url={``}
-          subject={`${post.name} is offering: ${post.title}`}
-          body={`${post.message}`}
-          // style={style}
-          // disabled={!user?.result}
-        >
-          <EmailIcon 
-          size={"2rem"} round 
-
-          />
-        </EmailShareButton>
-        ) 
-
-
-        // :
-        
-        // (user?.result) &&
-        // (
-        // <EmailShareButton
-        //   // url={}
-        //   url={``}
-        //   subject={`${post.name} is offering: ${post.title}`}
-        //   body={`${post.message}`}
-        //   style={style}
-        //   // disabled={!(user?.result?._id === post?.creator)}
-        // >
-        //   adasdasd
-        //   <EmailIcon 
-        //   size={"2rem"} round
-        //   style={{display: 'block'}}
-        //   />
-        // </EmailShareButton>
-        // )
-        }
-
-
-
-
-
-
-{/* ///////////////////////////////////////////////////////// */}
-
-        
-
-
-
-
-
-
-
+        )}
 
 
 

@@ -44,17 +44,17 @@ const Form = ({ currentId, setCurrentId }) => {
     if (!post?.title) clear();
     if (post) setPostData(post);
   }, [post]);
-
   // end
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(currentId === 0) {
-      
       dispatch(createPost({ ...postData, name: user?.result?.name }, navigate));
+      // dispatch(createPost({ ...postData, name: user?.result?.name }));
+      // navigate("/")
       clear();
     } else {
-      
+      // e.preventDefault();
       dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
       clear();
     }
@@ -98,7 +98,7 @@ const Form = ({ currentId, setCurrentId }) => {
         noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
-      >
+        >
         <Typography variant="h6">{ currentId ? `Editing "${post.title}"` : 'Post Your Ad' }</Typography>
         <TextField
           name="title"
