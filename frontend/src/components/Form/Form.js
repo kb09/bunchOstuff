@@ -83,7 +83,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant="h6" align="center">
-          Sign In to create your Ad.
+          Sign In to create your Ad and contact others.
         </Typography>
       </Paper>
     );
