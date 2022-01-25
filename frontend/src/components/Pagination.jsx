@@ -15,6 +15,7 @@ const Paginate = ({ page }) => {
   useEffect(() => {
     if (page) {
       dispatch(getPosts(page));
+      window.scrollTo(0, 0);
     }
   }, [dispatch, page]);
 
